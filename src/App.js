@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import movieData from './movieData';
+import MovieList from './MovieList';
+import MovieCard from './MovieCard';
 
 class App extends Component {
   constructor() {
@@ -12,9 +14,13 @@ class App extends Component {
 
   render() {
     return (
-      //movie List with props
+      <main className='App'>
+        <MovieList movies={this.state.movieData} />
+      </main>
     )
   }
 }
 
 export default App;
+
+//filter/search functionality 
