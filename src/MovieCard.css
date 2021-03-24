@@ -1,0 +1,11 @@
+.movieCard {
+  width: 200px;
+}
+
+.movieCard > img {
+  width: 200px;
+}
+
+.movieCard > h4 {
+  margin: 0;
+}
