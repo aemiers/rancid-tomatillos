@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import movieData from '../Data/movieData';
 import fakeMovieDetails from '../Data/fakeMovieDetails';
 import MovieDetails from '../MovieDetails/MovieDetails';
