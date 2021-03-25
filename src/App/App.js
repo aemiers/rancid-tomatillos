@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import movieData from '../Data/movieData';
-
-
-import fakeMovieData from '../Data/fakeMovieData';
+import fakeMovieDetails from '../Data/fakeMovieDetails';
 import MovieDetails from '../MovieDetails/MovieDetails';
-// please check previous lines
-
 import MovieList from '../MovieList/MovieList';
 import MovieCard from '../MovieCard/MovieCard';
 
@@ -15,7 +11,7 @@ class App extends Component {
     super();
     this.state = {
       movieData: movieData.movies,
-      movieDetails: fakeMovieData.movie
+      movieDetails: fakeMovieDetails.movie
     }
   }
 
@@ -24,7 +20,6 @@ class App extends Component {
       <main className='App'>
         <MovieList movies={this.state.movieData} />
         <MovieDetails movie={this.state.movieDetails} />
-        {/* please check previous line */}
       </main>
     )
   }

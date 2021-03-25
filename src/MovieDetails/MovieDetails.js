@@ -1,14 +1,14 @@
 import React from 'react';
 import './MovieDetails.css';
 
-const MovieDetails = ({ id, title, poster_path, backdrop_path, release_date, overview, average_rating, generes, budget, revenue, runtime, tagline }) => {
+const MovieDetails = ({ movie }) => {
 
   return (
     <section className="movie-details-section">
-      <h1>{title}</h1>
-      <h3>`${average_rating} · ${generes.name} · ${release_date} · ${runtime}</h3>
-      <p>{overview}</p>
-      <img src={backdrop_path} />
+      <h1>{movie.title}</h1>
+      <h3>{movie.average_rating} · {movie.genres[0]} · {movie.release_date} · {movie.runtime}</h3>
+      <p>{movie.overview}</p>
+      <img alt="movie backdrop" src={movie.backdrop_path} />
     </section>
   )
 }
@@ -17,3 +17,5 @@ const MovieDetails = ({ id, title, poster_path, backdrop_path, release_date, ove
 //Accepts one instance of movieDetail as a prop, accessed via the id 
 
 export default MovieDetails;
+
+// id, title, poster_path, backdrop_path, release_date, overview, average_rating, generes, budget, revenue, runtime, tagline
