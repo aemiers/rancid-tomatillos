@@ -13,9 +13,6 @@ const MovieDetails = ({ movie }) => {
   )
 }
 
-
-//Accepts one instance of movieDetail as a prop, accessed via the id 
-
 export default MovieDetails;
 
 // id, title, poster_path, backdrop_path, release_date, overview, average_rating, generes, budget, revenue, runtime, tagline
