@@ -4,8 +4,8 @@ import './MovieCard.css';
 const MovieCard = ({ id, title, poster, rating, date }) => {
   return (
     <section data={id} className='movieCard'>
-      <h3>{title}</h3>
       <img src={poster}/>
+      <h3>{title}</h3>
       <h4>{rating}</h4>
       <h4>{date}</h4>
     </section>
@@ -13,3 +13,6 @@ const MovieCard = ({ id, title, poster, rating, date }) => {
 }
 
 export default MovieCard;
+
+// what about alt tags in images?
+// A poster for the movie {title}
