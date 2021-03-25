@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import movieData from './movieData';
-import MovieList from './MovieList';
-import MovieCard from './MovieCard';
+import movieData from '../Data/movieData';
+import MovieList from '../MovieList/MovieList';
+import MovieCard from '../MovieCard/MovieCard';
 
 class App extends Component {
   constructor() {
