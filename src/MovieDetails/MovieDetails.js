@@ -6,7 +6,7 @@ const MovieDetails = ({ id, title, poster_path, backdrop_path, release_date, ove
   return (
     <section className="movie-details-section">
       <h1>{title}</h1>
-      <h3>`{average_rating} · {generes.name} · {release_date} · {runtime}</h3>
+      <h3>`${average_rating} · ${generes.name} · ${release_date} · ${runtime}</h3>
       <p>{overview}</p>
       <img src={backdrop_path} />
     </section>
