@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <main className='App'>
-        <MovieList movies={this.state.movieData} />
+        {/* <MovieList movies={this.state.movieData} /> */}
         <MovieDetails movie={this.state.movieDetails} />
       </main>
     )

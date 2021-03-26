@@ -3,10 +3,24 @@ import './MovieDetails.scss';
 
 const MovieDetails = ({ movie }) => {
 
+  const formatYear = movieDate => {
+    return new Date(movieDate).getFullYear()
+  }
+
+  const formatRunTime = movieRuntime => {
+    const hours = Math.floor(movieRuntime / 60);
+    const minutes = movieRuntime % 60;
+    return `${hours}h ${minutes}m`;
+  }
+
+  const calculatePercent = rating => {
+    return Math.round(rating * 10);
+  }
+
   return (
     <section className="movie-details-section">
       <h1>{movie.title}</h1>
-      <h3>{movie.average_rating} · {movie.genres[0]} · {movie.release_date} · {movie.runtime}</h3>
+      <h3>{calculatePercent(movie.average_rating)}% · {movie.genres[0]} · {formatYear(movie.release_date)} · {formatRunTime(movie.runtime)}</h3>
       <p>{movie.overview}</p>
       <img alt="movie backdrop" src={movie.backdrop_path} />
     </section>
@@ -14,5 +28,3 @@ const MovieDetails = ({ movie }) => {
 }
 
 export default MovieDetails;
-
-// id, title, poster_path, backdrop_path, release_date, overview, average_rating, generes, budget, revenue, runtime, tagline
