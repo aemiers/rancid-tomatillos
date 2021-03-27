@@ -6,6 +6,7 @@ import fakeMovieDetails from '../Data/fakeMovieDetails';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import MovieList from '../MovieList/MovieList';
 import MovieCard from '../MovieCard/MovieCard';
+import logo from '../assets/logo.svg';
 
 class App extends Component {
   constructor() {
@@ -32,8 +33,8 @@ class App extends Component {
         <Header />
         {/* also need to pass filterMovies function to header to get to form */}
         <MovieList movies={this.state.movieData} calc={this.calculatePercent} />
-        <MovieDetails movie={this.state.movieDetails} />
-        <img alt="tomatillo" src="./assets/tomatillo.svg" class="user-info__croper--pic" />
+        {/* <MovieDetails movie={this.state.movieDetails} />*/}
+        <img src={logo} alt="rancid tomatillos logo" />
       </main>
     )
   }
