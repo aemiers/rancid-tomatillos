@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieList.scss';
 
-const MovieList = ({ movies }) => {
+const MovieList = ({ movies, calc }) => {
 
   const movieCards = movies.map(movie => {
     return (
@@ -11,7 +11,7 @@ const MovieList = ({ movies }) => {
         id={movie.id}
         title={movie.title}
         poster={movie.poster_path}
-        rating={movie.average_rating}
+        rating={calc(movie.average_rating)}
         date={movie.release_date}
       />
     )

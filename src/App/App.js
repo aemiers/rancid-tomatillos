@@ -13,26 +13,27 @@ class App extends Component {
     this.state = {
       movieData: movieData.movies,
       movieDetails: fakeMovieDetails.movie
-      // movieData: [], 
-      // movieDetails: [], 
-      // filteredMovies: [], 
+      // movieData: [],
+      // movieDetails: [],
+      // filteredMovies: [],
       // error: ''
     }
   }
 
   // filterMovies function here
 
+  calculatePercent = rating => {
+     return (rating.toFixed(1) * 10);
+   }
+
   render() {
     return (
       <main className='App'>
         <Header />
         {/* also need to pass filterMovies function to header to get to form */}
-        <MovieList movies={this.state.movieData} />
+        <MovieList movies={this.state.movieData} calc={this.calculatePercent} />
         <MovieDetails movie={this.state.movieDetails} />
-        {/* <img src={tomatillo} alt='tomatillo' /> */}
         <img alt="tomatillo" src="./assets/tomatillo.svg" class="user-info__croper--pic" />
-
-        {/* <SvgTomatillo /> */}
       </main>
     )
   }

@@ -10,7 +10,7 @@ const MovieCard = ({ id, title, poster, rating, date }) => {
         <h3>{title}</h3>
         <div className='ratingBox'>
           <img src={tomatillo} alt='tomatillo icon' />
-          <h4>{(rating.toFixed(1)) * 10}%</h4>
+          <h4>{rating}%</h4>
         </div>
       </aside>
     </section>
