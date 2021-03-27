@@ -1,11 +1,39 @@
+@import '../Sass/index.scss';
+
 .movieCard {
-  width: 200px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(1, 1fr);
+
+  &:hover {
+    width: 106%;
+    border: solid 5px $green;
+  }
+
+  img {
+    width: 100%;
+    grid-area: bottom;
+  }
 }
 
-.movieCard > img {
-  width: 200px;
+.cardInfo {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  padding: 8px;
+  grid-area: bottom;
+  align-self: flex-end;
+
+  &:hover {
+    opacity: 1;
+    background: linear-gradient(to bottom, #22262b 0%, rgba(255, 0, 0, 0));
+  }
 }
 
-.movieCard > h4 {
-  margin: 0;
+.ratingBox {
+  display: flex;
 }
