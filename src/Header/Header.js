@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from '../Form/Form';
+import logo from '../assets/logo.svg';
 
 import './Header.scss'
 
@@ -9,7 +10,7 @@ const Header = () => {
       <header>
         <section className='header-container'>
           <div className='logo-container'>
-            <img alt="rancid tomatillos logo" src="./assets/logo.svg" class="logo" />
+            <img src={logo} alt="rancid tomatillos logo" />
           </div>
           <div className='form-container'>
             <Form />

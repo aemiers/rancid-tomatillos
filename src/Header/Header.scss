@@ -9,13 +9,20 @@ header {
 }
 
 .header-container {
-  width: 100%;
+  @include pageMargins;
   display: flex;
   justify-content: space-between;
 }
 
 .form-container {
   width: 50%;
+  display: flex;
+  justify-content: flex-end;
 }
+
+.logo-container {
+  width: 200px;
+}
+
 
 
