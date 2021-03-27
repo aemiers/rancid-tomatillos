@@ -19,10 +19,16 @@ const MovieDetails = ({ movie }) => {
 
   return (
     <section className="movie-details-section">
-      <h1>{movie.title}</h1>
-      <h3>{calculatePercent(movie.average_rating)}% · {movie.genres[0]} · {formatYear(movie.release_date)} · {formatRunTime(movie.runtime)}</h3>
-      <p>{movie.overview}</p>
-      <img alt="movie backdrop" src={movie.backdrop_path} />
+      <div className='backdrop-container'>
+        <img className='backdrop' alt="movie backdrop" src={movie.backdrop_path} />
+        <div className='overlay'> </div>
+      </div>
+      <section className='movie-words-container'>
+        <h1 className='movie-words__title'>{movie.title}</h1>
+        <h3 className='movie-words__title'>{calculatePercent(movie.average_rating)}% · {movie.genres[0]} · {formatYear(movie.release_date)} · {formatRunTime(movie.runtime)}</h3>
+        <p className='overview'>{movie.overview}</p>
+      </section>
+
     </section>
   )
 }

@@ -28,11 +28,7 @@ class App extends Component {
         <Header />
         {/* also need to pass filterMovies function to header to get to form */}
         <MovieList movies={this.state.movieData} />
-        <MovieDetails movie={this.state.movieDetails} />
-        {/* <img src={tomatillo} alt='tomatillo' /> */}
-        <img alt="tomatillo" src="./assets/tomatillo.svg" class="user-info__croper--pic" />
-
-        {/* <SvgTomatillo /> */}
+        {/* <MovieDetails movie={this.state.movieDetails} /> */}
       </main>
     )
   }

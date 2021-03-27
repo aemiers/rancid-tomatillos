@@ -2,6 +2,7 @@ import React from 'react';
 import Form from '../Form/Form';
 import logo from '../assets/logo.svg';
 
+
 import './Header.scss'
 
 const Header = () => {
@@ -9,9 +10,7 @@ const Header = () => {
     <>
       <header>
         <section className='header-container'>
-          <div className='logo-container'>
-            <img src={logo} alt="rancid tomatillos logo" />
-          </div>
+          <img className='logo' src={logo} alt="rancid tomatillos logo" />
           <div className='form-container'>
             <Form />
           </div>
