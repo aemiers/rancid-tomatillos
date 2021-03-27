@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieCard from '../MovieCard/MovieCard';
+import MovieCard from './MovieCard';
 import './MovieList.scss';
 
 const MovieList = ({ movies }) => {
@@ -18,11 +18,9 @@ const MovieList = ({ movies }) => {
   })
 
   return (
-    <section className='mainList'>
+    <section className='movieGrid'>
       <h1>Movies</h1>
-      <section className='movieGrid'>
-        {movieCards}
-      </section>
+      {movieCards}
     </section>
   )
 }
