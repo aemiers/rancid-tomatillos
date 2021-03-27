@@ -1,7 +1,21 @@
+@import '../Sass/index.scss';
+
+.mainList {
+  width: 86%;
+  margin: 0 auto;
+
+  h1 {
+    margin: 20px 0 20px 0;
+  }
+  
+}
+
+
 .movieGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 35px;
 }
+
+//center stuff in the
