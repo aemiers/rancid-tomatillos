@@ -1,8 +1,7 @@
 @import '../Sass/index.scss';
 
 .mainList {
-  width: 86%;
-  margin: 0 auto;
+  @include pageMargins;
 
   h1 {
     margin: 20px 0 20px 0;
