@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieDetails.scss';
 
-const MovieDetails = ({ movie }) => {
+const MovieDetails = ({ movie, icon }) => {
 
   const formatYear = movieDate => {
     return new Date(movieDate).getFullYear()
@@ -25,7 +25,7 @@ const MovieDetails = ({ movie }) => {
       </div>
       <section className='movie-words-container'>
         <h1 className='movie-words__title'>{movie.title}</h1>
-        <h3 className='movie-words__title'>{calculatePercent(movie.average_rating)}% · {movie.genres[0]} · {formatYear(movie.release_date)} · {formatRunTime(movie.runtime)}</h3>
+        <h3 >{icon}{calculatePercent(movie.average_rating)}% · {movie.genres[0]} · {formatYear(movie.release_date)} · {formatRunTime(movie.runtime)}</h3>
         <p className='overview'>{movie.overview}</p>
       </section>
 
