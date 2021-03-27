@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieList.scss';
 
-const MovieList = ({ movies, calc }) => {
+const MovieList = ({ movies, calc, icon }) => {
 
   const movieCards = movies.map(movie => {
     return (
@@ -13,6 +13,7 @@ const MovieList = ({ movies, calc }) => {
         poster={movie.poster_path}
         rating={calc(movie.average_rating)}
         date={movie.release_date}
+        icon={icon}
       />
     )
   })

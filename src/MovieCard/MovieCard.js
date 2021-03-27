@@ -1,8 +1,10 @@
 import React from 'react';
 import './MovieCard.scss';
-import tomatillo from '../assets/tomatillo.svg';
 
-const MovieCard = ({ id, title, poster, rating, date }) => {
+
+const MovieCard = ({ id, title, poster, rating, date, icon }) => {
+
+
 
   const clickHandler = () => {
     console.log(id);
@@ -14,7 +16,7 @@ const MovieCard = ({ id, title, poster, rating, date }) => {
       <aside className='cardInfo'>
         <h3>{title}</h3>
         <div className='ratingBox'>
-          <img src={tomatillo} alt='tomatillo icon' />
+          <img src={icon} alt='tomatillo icon' />
           <h4>{rating}%</h4>
         </div>
       </aside>

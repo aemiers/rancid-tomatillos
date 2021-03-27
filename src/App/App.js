@@ -7,6 +7,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import MovieList from '../MovieList/MovieList';
 import MovieCard from '../MovieCard/MovieCard';
 import logo from '../assets/logo.svg';
+import tomatillo from '../assets/tomatillo.svg';
 
 class App extends Component {
   constructor() {
@@ -27,12 +28,15 @@ class App extends Component {
      return (rating.toFixed(1) * 10);
    }
 
+
+
+
   render() {
     return (
       <main className='App'>
         <Header />
         {/* also need to pass filterMovies function to header to get to form */}
-        <MovieList movies={this.state.movieData} calc={this.calculatePercent} />
+        <MovieList movies={this.state.movieData} calc={this.calculatePercent} icon={tomatillo} />
         {/* <MovieDetails movie={this.state.movieDetails} />*/}
         <img src={logo} alt="rancid tomatillos logo" />
       </main>
