@@ -25,7 +25,7 @@ const MovieDetails = ({ movie, icon }) => {
       </div>
       <section className='movie-words-container'>
         <h1 className='movie-words__title'>{movie.title}</h1>
-        <h3 >{icon}{calculatePercent(movie.average_rating)}% · {movie.genres[0]} · {formatYear(movie.release_date)} · {formatRunTime(movie.runtime)}</h3>
+        <h3 >{icon}{calculatePercent(movie.average_rating)}% ·  · {formatYear(movie.release_date)} · {formatRunTime(movie.runtime)}</h3>
         <p className='overview'>{movie.overview}</p>
       </section>
 
@@ -34,3 +34,7 @@ const MovieDetails = ({ movie, icon }) => {
 }
 
 export default MovieDetails;
+
+// { movie.genres[0] }
+
+// genres
