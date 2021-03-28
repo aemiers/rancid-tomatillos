@@ -21,3 +21,17 @@ export const fetchVideo = (id) => {
       return response.json()
     })
 }
+
+//combine the last two functions
+
+export const getSingleMovieData = (id) => {
+  const clickedMovieData = Promise.all([
+    fetch(`${baseURL}/movies/${id}`),
+    fetch(`${baseURL}/movies/${id}/videos`)
+  ]).then(response => {
+    return response.json()
+  })
+  return clickedMovieData
+}
+
+//returns array of all promise resolutions
