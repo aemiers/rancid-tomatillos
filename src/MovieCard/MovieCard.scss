@@ -1,6 +1,6 @@
 @import '../Sass/index.scss';
 
-.movieCard {
+.movie-card {
   width: 100%;
   top: 0;
   right: 0;
@@ -10,7 +10,12 @@
   grid-template-columns: 1fr;
   grid-template-rows: repeat(1, 1fr);
 
-  &:hover {
+  &:hover  {
+    width: 100%;
+    border: solid 3px $green;
+  }
+
+  &:focus {
     width: 100%;
     border: solid 3px $green;
   }
@@ -21,23 +26,24 @@
   }
 }
 
-.cardInfo {
+.card-info {
+  display:flex;
+  flex-direction: column-reverse;
   opacity: 0;
   height: 100%;
   width: 100%;
   position: absolute;
   padding: 8px;
   grid-area: bottom;
-  align-self: flex-end;
 
   &:hover {
     opacity: 1;
-    background: linear-gradient(to bottom, #22262b 0%, rgba(255, 0, 0, 0));
+    background: linear-gradient(to top, #22262b 0%, rgba(255, 0, 0, 0));
   }
 
   &:focus {
     opacity: 1;
-    background: linear-gradient(to bottom, #22262b 0%, rgba(255, 0, 0, 0));
+    background: linear-gradient(to top, #22262b 0%, rgba(255, 0, 0, 0));
   }
 
   h3 {
@@ -47,7 +53,7 @@
   }
 }
 
-.ratingBox {
+.rating-box {
   display: flex;
   align-items: center;
 
