@@ -10,9 +10,9 @@ const Header = ({ click }) => {
     <>
       <header>
         <section className='header-container'>
-          <div onClick={event => click(0)} className='logo-container'>
+          <button onClick={event => click(0)} className='logo-container'>
             <img className='logo' src={logo} alt="rancid tomatillos logo" />
-          </div>
+          </button>
           <div className='form-container'>
             <Form />
           </div>

@@ -8,7 +8,6 @@ import tomatillo from '../assets/tomatillo.svg';
 import MovieList from '../MovieList/MovieList';
 import MovieCard from '../MovieCard/MovieCard';
 import logo from '../assets/logo.svg';
-import tomatillo from '../assets/tomatillo.svg';
 
 class App extends Component {
   constructor() {
