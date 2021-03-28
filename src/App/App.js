@@ -15,7 +15,7 @@ class App extends Component {
       movieDetails: [], //singe movie
       filteredMovies: [],
       pageLocation: 0,
-      currentMovie: {},
+      // currentMovie: {},
       isLoading: true,
       error: '',
 
@@ -34,7 +34,12 @@ class App extends Component {
     return (rating.toFixed(1) * 10);
   }
 
+  resetMovie = () => {
+
+  }
+
   clickHandler = (id) => {
+    this.setState({ movieDetails: [] })
     this.setState({ pageLocation: id })
     fetchSingleMovie(id)
       .then(movie => {
@@ -54,7 +59,6 @@ class App extends Component {
           click={this.clickHandler}
         />}
         {this.state.pageLocation && <MovieDetails
-
           movie={this.state.movieDetails}
           icon={tomatillo}
           id={this.state.pageLocation}
