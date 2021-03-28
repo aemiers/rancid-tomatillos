@@ -1,7 +1,6 @@
 import React from 'react';
 import './MovieCard.scss';
 
-
 const MovieCard = ({ id, title, poster, rating, icon, click }) => {
 
   return (
