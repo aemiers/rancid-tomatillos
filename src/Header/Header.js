@@ -5,12 +5,14 @@ import logo from '../assets/logo.svg';
 
 import './Header.scss'
 
-const Header = () => {
+const Header = ({ click }) => {
   return (
     <>
       <header>
         <section className='header-container'>
-          <img className='logo' src={logo} alt="rancid tomatillos logo" />
+          <div onClick={event => click(0)} className='logo-container'>
+            <img className='logo' src={logo} alt="rancid tomatillos logo" />
+          </div>
           <div className='form-container'>
             <Form />
           </div>

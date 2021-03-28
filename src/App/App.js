@@ -7,29 +7,52 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import tomatillo from '../assets/tomatillo.svg';
 import MovieList from '../MovieList/MovieList';
 import MovieCard from '../MovieCard/MovieCard';
+import logo from '../assets/logo.svg';
+import tomatillo from '../assets/tomatillo.svg';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movieData: movieData.movies,
-      movieDetails: fakeMovieDetails.movie
-      // movieData: [], 
-      // movieDetails: [], 
-      // filteredMovies: [], 
+      movieDetails: fakeMovieDetails.movie,
+      pageLocation: 0
+      // movieData: [],
+      // movieDetails: [],
+      // filteredMovies: [],
       // error: ''
     }
   }
 
-  // filterMovies function here
+  // filterMovies function here, also need to pass filterMovies funtion to header
+
+  calculatePercent = rating => {
+     return (rating.toFixed(1) * 10);
+   }
+
+   clickHandler = (id) => {
+     this.setState({ pageLocation: id})
+   }
 
   render() {
     return (
       <main className='App'>
-        <Header />
-        {/* also need to pass filterMovies function to header to get to form */}
-        {/* <MovieList movies={this.state.movieData} /> */}
-        <MovieDetails movie={this.state.movieDetails icon={tomatillo}} />
+
+        <Header click={this.clickHandler}/>
+        {!this.state.pageLocation && <MovieList
+          movies={this.state.movieData}
+          calc={this.calculatePercent}
+          icon={tomatillo}
+          click={this.clickHandler}
+        />}
+        {this.state.pageLocation && <MovieDetails
+          movie={this.state.movieDetails}
+          icon={tomatillo}
+          id={this.state.pageLocation}
+        />}
+        <div className="bottom-logo">
+          <img src={logo} alt="rancid tomatillos logo" />
+        </div>
       </main>
     )
   }
