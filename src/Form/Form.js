@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import search from '../assets/search.svg';
+import cancel from '../assets/cancel.svg';
 import './Form.scss';
 
 class Form extends Component {
@@ -31,6 +33,7 @@ class Form extends Component {
   render() {
     return (
       <form>
+        <img className='search-icon' src={search} alt="search icon" />
         <input
           type='text'
           placeholder='Search for movies'
@@ -38,8 +41,7 @@ class Form extends Component {
           value={this.state.searchWords}
           onChange={event => this.handleChange(event)}
         />
-        {/* <button onClick={event => this.submitIdea(event)}>SUBMIT</button> */}
-        <button onClick={this.clearInputs}>X</button>
+        <button onClick={this.clearInputs}><img className='clear-icon' src={cancel} alt="clear button" /></button>
       </form>
     )
   }

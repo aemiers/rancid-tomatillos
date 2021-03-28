@@ -2,6 +2,7 @@ import React from 'react';
 import Form from '../Form/Form';
 import logo from '../assets/logo.svg';
 
+
 import './Header.scss'
 
 const Header = ({ click }) => {
@@ -10,7 +11,7 @@ const Header = ({ click }) => {
       <header>
         <section className='header-container'>
           <div onClick={event => click(0)} className='logo-container'>
-            <img src={logo} alt="rancid tomatillos logo" />
+            <img className='logo' src={logo} alt="rancid tomatillos logo" />
           </div>
           <div className='form-container'>
             <Form />

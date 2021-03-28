@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import movieData from '../Data/movieData';
 import fakeMovieDetails from '../Data/fakeMovieDetails';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import tomatillo from '../assets/tomatillo.svg';
 import MovieList from '../MovieList/MovieList';
 import MovieCard from '../MovieCard/MovieCard';
 import logo from '../assets/logo.svg';
@@ -36,6 +37,7 @@ class App extends Component {
   render() {
     return (
       <main className='App'>
+
         <Header click={this.clickHandler}/>
         {!this.state.pageLocation && <MovieList
           movies={this.state.movieData}

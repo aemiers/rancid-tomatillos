@@ -7,7 +7,7 @@ input {
   width: 45rem;
   height: 4.5rem;
   border-radius: 22px;
-  padding-left: 20px;
+  padding-left: 55px;
   background-color: $lighter-grey;
   border: 2px solid white;
   font-size: 1.75rem;
@@ -26,4 +26,18 @@ button {
   background-color: $lighter-grey;
   border: none;
   font-size: 2rem;
+}
+
+.search-icon {
+  position: absolute;
+  top: 2px;
+  left: 1.8px;
+  width: 41px;
+  padding: 5px;
+  background-color: #8EFF6F;
+  border-radius: 46%;
+}
+
+.clear-icon {
+  width: 15px;
 }
