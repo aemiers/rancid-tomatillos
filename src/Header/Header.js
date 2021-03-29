@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Form from '../Form/Form';
 import logo from '../assets/logo.svg';
 
@@ -23,3 +24,7 @@ const Header = ({ click }) => {
 }
 
 export default Header;
+
+Header.propTypes = {
+  click: PropTypes.func
+};
