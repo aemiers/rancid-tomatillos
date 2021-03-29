@@ -11,7 +11,7 @@ const MovieCard = ({ id, title, poster, rating, icon, click }) => {
           <img src={icon} alt='tomatillo icon' />
           <h4>{rating}%</h4>
         </div>
-        <h3>{title}</h3>
+        <h3 className='hover-title'>{title}</h3>
       </aside>
     </button>
   )
