@@ -11,6 +11,7 @@ input {
   background-color: $lighter-grey;
   border: 2px solid white;
   font-size: 1.75rem;
+  color: $white;
 
   &:focus {
     box-shadow: 0 0 5px 0 white;
