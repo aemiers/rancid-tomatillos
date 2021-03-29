@@ -1,16 +1,49 @@
 @import '../Sass/index.scss';
 
-.movieCard {
+.movie-card {
   width: 100%;
+  top: 0;
+  right: 0;
   position: relative;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(1, 1fr);
 
-  &:hover {
-    width: 100%;
+  &:hover  {
+    transform: scale(1.1);
+    transition: transform 300ms;
+    transition: all 0.2s ease-in-out;
     border: solid 3px $green;
+  }
+
+  &:hover .poster {
+    transform: scale(1.02);
+  }
+
+  &:hover .card-info {
+    transition: transform 300ms;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+    background: linear-gradient(to top, #22262b 0%, rgba(255, 0, 0, 0));
+  }
+
+  &:focus {
+    transform: scale(1.1);
+    transition: transform 300ms;
+    transition: all 0.2s ease-in-out;
+    border: solid 3px $green;
+  }
+
+  &:focus .poster {
+    transform: scale(1.02);
+  }
+
+  &:focus .card-info {
+    transition: transform 300ms;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+    background: linear-gradient(to top, #22262b 0%, rgba(255, 0, 0, 0));
   }
 
   img {
@@ -19,24 +52,15 @@
   }
 }
 
-.cardInfo {
+.card-info {
+  display:flex;
+  flex-direction: column-reverse;
   opacity: 0;
   height: 100%;
   width: 100%;
   position: absolute;
   padding: 8px;
   grid-area: bottom;
-  align-self: flex-end;
-
-  &:hover {
-    opacity: 1;
-    background: linear-gradient(to bottom, #22262b 0%, rgba(255, 0, 0, 0));
-  }
-
-  &:focus {
-    opacity: 1;
-    background: linear-gradient(to bottom, #22262b 0%, rgba(255, 0, 0, 0));
-  }
 
   h3 {
     font-size: 24px;
@@ -45,7 +69,7 @@
   }
 }
 
-.ratingBox {
+.rating-box {
   display: flex;
   align-items: center;
 

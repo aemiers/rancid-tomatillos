@@ -7,6 +7,7 @@ import MovieList from '../MovieList/MovieList';
 import MovieCard from '../MovieCard/MovieCard';
 import { fetchAllMovies, fetchSingleMovie, fetchVideo } from '../Data/apiCalls';
 import logo from '../assets/logo.svg';
+
 class App extends Component {
   constructor() {
     super();
