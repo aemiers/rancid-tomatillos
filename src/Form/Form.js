@@ -18,11 +18,6 @@ class Form extends Component {
   submitIdea = event => {
     event.preventDefault();
     this.props.filterMovies(this.state.value)
-    // const newIdea = {
-    //   id: Date.now(),
-    //   ...this.state // spreading in the title and description
-    // }
-    // this.props.addIdea(newIdea);
     this.clearInputs();
   }
 

@@ -17,9 +17,12 @@ const MovieDetails = ({ movie, icon }) => {
     return Math.round(rating * 10);
   }
 
-  // const findGenre = (thing) => {
-  //   return thing;
-  // }
+  const formatGenre = (movieGenres) => {
+    if (movieGenres) {
+      return movieGenres[0]
+    }
+    return
+  }
 
   return (
     <section className="movie-details-section">
@@ -29,7 +32,7 @@ const MovieDetails = ({ movie, icon }) => {
       </div>
       <section className='movie-words-container'>
         <h1 className='movie-words__title'>{movie.title}</h1>
-        <h2 className='movie-words__details'><img className='tomatillo' src={icon} alt='tomatillo icon' />{calculatePercent(movie.average_rating)}% · {movie.genres} · {formatYear(movie.release_date)} · {formatRunTime(movie.runtime)}</h2>
+        <h2 className='movie-words__details'><img className='tomatillo' src={icon} alt='tomatillo icon' />{calculatePercent(movie.average_rating)}% · {formatGenre(movie.genres)} · {formatYear(movie.release_date)} · {formatRunTime(movie.runtime)}</h2>
         <p className='overview'>{movie.overview}</p>
       </section>
     </section>
@@ -37,4 +40,4 @@ const MovieDetails = ({ movie, icon }) => {
 }
 
 export default MovieDetails;
-//
+

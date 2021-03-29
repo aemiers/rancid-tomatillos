@@ -18,8 +18,14 @@ header {
   width: 50%;
   display: flex;
   justify-content: flex-end;
+
+  &:hover {
+    @include cursor;
+    
+  }
 }
 
 .logo {
+
   width: 127px;
 }
