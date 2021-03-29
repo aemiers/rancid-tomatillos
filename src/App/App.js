@@ -13,7 +13,7 @@ class App extends Component {
     super();
     this.state = {
       movieData: [], //all of the movie on home page
-      movieDetails: [], //singe movie
+      movieDetails: [null], //singe movie
       filteredMovies: [],
       pageLocation: 0,
       isLoading: true,
