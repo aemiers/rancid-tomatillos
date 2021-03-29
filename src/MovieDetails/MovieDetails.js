@@ -17,9 +17,9 @@ const MovieDetails = ({ movie, icon }) => {
     return Math.round(rating * 10);
   }
 
-  // const findGenre = (thing) => {
-  //   return thing;
-  // }
+  const formatGenre = (thing) => {
+    return thing.join(', ')
+  }
 
   return (
     <section className="movie-details-section">

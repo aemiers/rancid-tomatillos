@@ -40,6 +40,7 @@ class App extends Component {
       .then(movie => {
         this.setState({ movieDetails: movie.movie });
       })
+      .catch(err => this.setState({ error: 'There was a problem loading the movie details' }))
   }
 
   render() {
