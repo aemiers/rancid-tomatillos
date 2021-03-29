@@ -20,9 +20,8 @@ const MovieDetails = ({ movie, icon }) => {
   const formatGenre = (movieGenres) => {
     if (movieGenres) {
       return movieGenres[0]
-    } else {
-      return
     }
+    return
   }
 
   return (
