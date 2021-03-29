@@ -16,10 +16,8 @@ class App extends Component {
       movieDetails: [], //singe movie
       filteredMovies: [],
       pageLocation: 0,
-      // currentMovie: {},
       isLoading: true,
       error: '',
-
     }
   }
 
@@ -35,10 +33,6 @@ class App extends Component {
     return (rating.toFixed(1) * 10);
   }
 
-  resetMovie = () => {
-
-  }
-
   clickHandler = (id) => {
     this.setState({ movieDetails: [] })
     this.setState({ pageLocation: id })
@@ -50,22 +44,32 @@ class App extends Component {
 
   render() {
     return (
-      // <>
-      <main className='App'>
-        <Header click={this.clickHandler} />
-        {!this.state.pageLocation && <MovieList
-          movies={this.state.movieData}
-          calc={this.calculatePercent}
-          icon={tomatillo}
-          click={this.clickHandler}
-        />}
-        {this.state.pageLocation && <MovieDetails
-          movie={this.state.movieDetails}
-          icon={tomatillo}
-          id={this.state.pageLocation}
-        />}
-      </main>
-      // </>
+      <>
+        {this.state.error && (
+          <h2 className='error'>{this.state.error}</h2>
+        )}
+        {this.state.movieData.length > 0 && (
+          // {this.state.movieData && (
+          < main className='App' >
+            <Header click={this.clickHandler} />
+            {
+              !this.state.pageLocation && <MovieList
+                movies={this.state.movieData}
+                calc={this.calculatePercent}
+                icon={tomatillo}
+                click={this.clickHandler}
+              />
+            }
+            {
+              this.state.pageLocation && <MovieDetails
+                movie={this.state.movieDetails}
+                icon={tomatillo}
+                id={this.state.pageLocation}
+              />
+            }
+          </main >
+        )}
+      </>
     )
   }
 }
