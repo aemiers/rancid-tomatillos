@@ -43,6 +43,5 @@ const MovieDetails = ({ movie, icon }) => {
 export default MovieDetails;
 
 MovieDetails.propTypes = {
-  movie: PropTypes.object,
   icon: PropTypes.string
 };

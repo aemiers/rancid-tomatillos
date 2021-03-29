@@ -36,11 +36,13 @@ class App extends Component {
   clickHandler = (id) => {
     this.setState({ movieDetails: [] })
     this.setState({ pageLocation: id })
-    fetchSingleMovie(id)
+    if (id) {
+      fetchSingleMovie(id)
       .then(movie => {
         this.setState({ movieDetails: movie.movie });
       })
       .catch(err => this.setState({ error: 'There was a problem loading the movie details' }))
+    }
   }
 
   render() {
