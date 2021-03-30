@@ -35,8 +35,6 @@
   }
 
   &:focus .card-info {
-    transition: transform 300ms;
-    transition: all 0.2s ease-in-out;
     opacity: 1;
     background: linear-gradient(to top, #22262b 0%, rgba(255, 0, 0, 0));
   }
