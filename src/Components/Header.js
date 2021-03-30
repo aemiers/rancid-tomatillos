@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Form from '../Form/Form';
+import Form from './Form';
 import logo from '../assets/logo.svg';
-
-
-import './Header.scss'
+import '../Sass/Header.scss'
 
 const Header = ({ click }) => {
   return (

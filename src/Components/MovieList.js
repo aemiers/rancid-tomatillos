@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MovieCard from '../MovieCard/MovieCard';
-import './MovieList.scss';
+import MovieCard from './MovieCard';
+import '../Sass/MovieList.scss';
 
 const MovieList = ({ movies, calc, icon, click }) => {
 

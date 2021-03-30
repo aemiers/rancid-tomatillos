@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './MovieDetails.scss';
+import '../Sass/MovieDetails.scss';
 
 const MovieDetails = ({ movie, icon }) => {
 

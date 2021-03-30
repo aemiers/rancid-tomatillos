@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import './App.scss';
-import Header from '../Header/Header';
-import MovieDetails from '../MovieDetails/MovieDetails';
+import '../Sass/App.scss';
+import Header from './Header';
+import MovieDetails from './MovieDetails';
 import tomatillo from '../assets/tomatillo.svg';
-import MovieList from '../MovieList/MovieList';
-import MovieCard from '../MovieCard/MovieCard';
+import MovieList from './MovieList';
+import MovieCard from './MovieCard';
 import { fetchAllMovies, fetchSingleMovie, fetchVideo } from '../Data/apiCalls';
 import logo from '../assets/logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
