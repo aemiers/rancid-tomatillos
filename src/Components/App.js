@@ -35,9 +35,9 @@ class App extends Component {
     this.setState({ filteredMovies: resultMovies })
   }
 
-  displayCorrectMoviesList = () => {
-    return this.filteredMovies.length ? this.filteredMovies : this.movieData
-  }
+  // displayCorrectMoviesList = () => {
+  //   return this.filteredMovies.length ? this.filteredMovies : this.movieData
+  // }
 
   calculatePercent = rating => {
     return (rating.toFixed(1) * 10);
@@ -68,10 +68,11 @@ class App extends Component {
             {
               !this.state.pageLocation && <MovieList
                 movies={this.state.movieData}
+                filteredMovies={this.state.filteredMovies}
                 calc={this.calculatePercent}
                 icon={tomatillo}
                 click={this.clickHandler}
-                display={this.displayCorrectMoviesList}
+              // display={this.displayCorrectMoviesList}
               />
             }
             {

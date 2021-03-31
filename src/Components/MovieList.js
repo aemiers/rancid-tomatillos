@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieList.scss';
 
-const MovieList = ({ movies, calc, icon, click }) => {
+const MovieList = ({ movies, filteredMovies, calc, icon, click, display }) => {
+  const moviesToDisplay = filteredMovies.length ? filteredMovies : movies;
 
-  const movieCards = movies.map(movie => {
+
+  // const movieCards = movies.map(movie => {
+  const movieCards = moviesToDisplay.map(movie => {
+
     return (
       <MovieCard
         key={movie.id}
