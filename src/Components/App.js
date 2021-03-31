@@ -27,7 +27,12 @@ class App extends Component {
       .catch(err => this.setState({ error: 'Something went wrong' }))
   }
 
-  // filterMovies function here, also need to pass filterMovies funtion to header
+  filterSearch = (searchWords) => {
+    const formattedSearchWords = searchWords.toLowerCase();
+    this.filteredMovies = this.state.movieData.filter(movie => {
+      return movie.title.toLowerCase.includes(formattedSearchWords)
+    })
+  }
 
   calculatePercent = rating => {
     return (rating.toFixed(1) * 10);
@@ -38,10 +43,10 @@ class App extends Component {
     this.setState({ pageLocation: id })
     if (id) {
       fetchSingleMovie(id)
-      .then(movie => {
-        this.setState({ movieDetails: movie.movie });
-      })
-      .catch(err => this.setState({ error: 'There was a problem loading the movie details' }))
+        .then(movie => {
+          this.setState({ movieDetails: movie.movie });
+        })
+        .catch(err => this.setState({ error: 'There was a problem loading the movie details' }))
     }
   }
 
@@ -54,7 +59,7 @@ class App extends Component {
         {this.state.movieData.length > 0 && (
           // {this.state.movieData && (
           < main className='App' >
-            <Header click={this.clickHandler} />
+            <Header click={this.clickHandler} onChange={this.filterSearch} />
             {
               !this.state.pageLocation && <MovieList
                 movies={this.state.movieData}
