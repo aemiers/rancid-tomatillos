@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 import '../Sass/MovieList.scss';
 
+// const MovieList = ({ movies, calc, icon }) => {
 
 const MovieList = ({ movies, filteredMovies, calc, icon, click, display }) => {
 
@@ -19,7 +20,6 @@ const MovieList = ({ movies, filteredMovies, calc, icon, click, display }) => {
         poster={movie.poster_path}
         rating={calc(movie.average_rating)}
         icon={icon}
-        click={click}
       />
     )
   })
@@ -40,5 +40,5 @@ MovieList.propTypes = {
   movie: PropTypes.object,
   calc: PropTypes.func,
   icon: PropTypes.string,
-  click: PropTypes.func
+  stateChange: PropTypes.func
 };
