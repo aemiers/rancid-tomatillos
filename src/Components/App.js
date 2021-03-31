@@ -60,7 +60,7 @@ class App extends Component {
         {this.state.movieData.length > 0 && (
           // {this.state.movieData && (
           < main className='App' >
-            <Header click={this.clickHandler} onChange={this.filterSearch} />
+            <Header click={this.clickHandler} filterSearch={this.filterSearch} />
             {
               !this.state.pageLocation && <MovieList
                 movies={this.state.movieData}

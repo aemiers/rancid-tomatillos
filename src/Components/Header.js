@@ -2,13 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Form from './Form';
 import logo from '../assets/logo.svg';
-
-
-// import './Header.scss'
 import '../Sass/Header.scss';
 
 
-const Header = ({ click }) => {
+const Header = ({ click, filterSearch }) => {
   return (
     <>
       <header>
