@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './MovieCard.scss';
 
 const MovieCard = ({ id, title, poster, rating, icon, click }) => {
@@ -18,3 +19,12 @@ const MovieCard = ({ id, title, poster, rating, icon, click }) => {
 }
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  poster: PropTypes.string,
+  rating: PropTypes.number,
+  icon: PropTypes.string,
+  click: PropTypes.func
+};

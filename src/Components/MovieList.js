@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieList.scss';
 
@@ -12,7 +13,6 @@ const MovieList = ({ movies, calc, icon, click }) => {
         title={movie.title}
         poster={movie.poster_path}
         rating={calc(movie.average_rating)}
-        date={movie.release_date}
         icon={icon}
         click={click}
       />
@@ -30,3 +30,10 @@ const MovieList = ({ movies, calc, icon, click }) => {
 }
 
 export default MovieList;
+
+MovieList.propTypes = {
+  movie: PropTypes.object,
+  calc: PropTypes.func,
+  icon: PropTypes.string,
+  click: PropTypes.func
+};

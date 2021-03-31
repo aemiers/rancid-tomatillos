@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './MovieDetails.scss';
 
 const MovieDetails = ({ movie, icon }) => {
@@ -41,3 +42,6 @@ const MovieDetails = ({ movie, icon }) => {
 
 export default MovieDetails;
 
+MovieDetails.propTypes = {
+  icon: PropTypes.string
+};
