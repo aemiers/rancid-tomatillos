@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import Form from './Form';
 import logo from '../assets/logo.svg';
 import '../Sass/Header.scss'
+import { Link } from 'react-router-dom';
 
-const Header = ({ click }) => {
+const Header = () => {
   return (
     <>
       <header>
         <section className='header-container'>
-          <button onClick={event => click(0)} className='logo-container'>
+          <Link to={'/'} className='logo-container'>
             <img className='logo' src={logo} alt="rancid tomatillos logo" />
-          </button>
+          </Link>
           <div className='form-container'>
             <Form />
           </div>

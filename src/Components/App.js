@@ -5,7 +5,7 @@ import MovieDetails from './MovieDetails';
 import tomatillo from '../assets/tomatillo.svg';
 import MovieList from './MovieList';
 import MovieCard from './MovieCard';
-import { fetchAllMovies, fetchSingleMovie, fetchVideo } from '../Data/apiCalls';
+import { fetchAllMovies, fetchSingleMovie, fetchVideo} from '../Data/apiCalls';
 import logo from '../assets/logo.svg';
 import { Route, Switch } from 'react-router-dom';
 
@@ -14,9 +14,8 @@ class App extends Component {
     super();
     this.state = {
       movieData: [], //all of the movie on home page
-      movieDetails: [], //singe movie
       filteredMovies: [],
-      pageLocation: 0,
+      singleMovieID: '', //path
       isLoading: true,
       error: '',
     }
@@ -24,14 +23,21 @@ class App extends Component {
 
   componentDidMount() {
     fetchAllMovies()
-      .then(movies => this.setState({ movieData: movies.movies }))
-      .catch(err => this.setState({ error: 'Something went wrong' }))
+      .then(movies => this.setState({
+        movieData: movies.movies}))
+      .catch(err => this.setState({
+        error: 'Something went wrong'
+      }))
   }
 
   // filterMovies function here, also need to pass filterMovies funtion to header
 
   calculatePercent = rating => {
     return (rating.toFixed(1) * 10);
+  }
+
+  stateChange = (newStateData) => {
+      this.setState({singleMovieID: newStateData})
   }
 
   // clickHandler = (id) => {
@@ -48,33 +54,33 @@ class App extends Component {
 
   render() {
     return (
-        <>
-          {this.state.error && (
-            <h2 className='error'>{this.state.error}</h2>
-          )}
-            < main className='App' >
-              <Header click={this.clickHandler} />
-              <Switch>
-                <Route exact path="/" render={() => <MovieList
-                    movies={this.state.movieData}
-                    calc={this.calculatePercent}
-                    icon={tomatillo}
-                    />} />
-                <Route
-                  exact
-                  path="/:id"
-                  render={({ match }) => {
-                    <MovieDetails
-                    icon={tomatillo}
-                    id={match.params.id}
-                    />}
-                  } />
-              </Switch>
-            </main >
-          )}
-        </>
-    )
+      <> {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
+        <main className='App' >
+          <Header stateChange={this.stateChange}/>
+          <Switch>
+          <Route
+            exact
+            path="/"
+            render={() =>
+              <MovieList
+                movies={this.state.movieData}
+                calc={this.calculatePercent}
+                icon={tomatillo}
+                stateChange={this.stateChange}/>}
+              />
+          <Route
+            exact
+            path="/:id"
+            render={({ match }) =>
+              <MovieDetails
+                icon={tomatillo}
+                id={match.params.id}
+                stateChange={this.stateChange}/>}
+              />
+          </Switch>
+        </main >
+      </>)
+    }
   }
-}
 
-export default App;
+  export default App;

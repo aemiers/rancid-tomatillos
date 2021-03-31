@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../Sass/MovieCard.scss';
 import { Link } from 'react-router-dom';
 
-const MovieCard = ({ id, title, poster, rating, icon, click }) => {
+const MovieCard = ({ id, title, poster, rating, icon, }) => {
 
   return (
     <Link to={`/${id}`} className='movie-card'>
@@ -27,5 +27,5 @@ MovieCard.propTypes = {
   poster: PropTypes.string,
   rating: PropTypes.number,
   icon: PropTypes.string,
-  click: PropTypes.func
+  stateChange: PropTypes.func
 };
