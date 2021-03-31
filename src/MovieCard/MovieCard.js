@@ -8,8 +8,8 @@ const MovieCard = ({ id, title, poster, rating, icon, click }) => {
       <img src={poster} alt={title} className='poster' />
       <aside className='card-info'>
         <div className='rating-box'>
-          <img src={icon} alt='tomatillo icon' />
-          <h4>{rating}%</h4>
+          <img className='tomatillo' src={icon} alt='tomatillo icon' />
+          <h4 className='rating'>{rating}%</h4>
         </div>
         <h3 className='hover-title'>{title}</h3>
       </aside>
