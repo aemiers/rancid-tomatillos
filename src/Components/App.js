@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './App.scss';
-import Header from '../Header/Header';
-import MovieDetails from '../MovieDetails/MovieDetails';
+import '../Sass/App.scss';
+import Header from './Header';
+import MovieDetails from './MovieDetails';
 import tomatillo from '../assets/tomatillo.svg';
-import MovieList from '../MovieList/MovieList';
-import MovieCard from '../MovieCard/MovieCard';
+import MovieList from './MovieList';
+import MovieCard from './MovieCard';
 import { fetchAllMovies, fetchSingleMovie, fetchVideo } from '../Data/apiCalls';
 import logo from '../assets/logo.svg';
 
@@ -34,10 +34,6 @@ class App extends Component {
     })
     this.setState({ filteredMovies: resultMovies })
   }
-
-  // displayCorrectMoviesList = () => {
-  //   return this.filteredMovies.length ? this.filteredMovies : this.movieData
-  // }
 
   calculatePercent = rating => {
     return (rating.toFixed(1) * 10);
@@ -72,7 +68,6 @@ class App extends Component {
                 calc={this.calculatePercent}
                 icon={tomatillo}
                 click={this.clickHandler}
-              // display={this.displayCorrectMoviesList}
               />
             }
             {

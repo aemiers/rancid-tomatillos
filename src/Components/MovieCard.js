@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './MovieCard.scss';
+// import './MovieCard.scss';
+import '../Sass/MovieCard.scss';
+
 
 const MovieCard = ({ id, title, poster, rating, icon, click }) => {
 

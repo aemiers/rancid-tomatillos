@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MovieCard from '../MovieCard/MovieCard';
-import './MovieList.scss';
+import MovieCard from './MovieCard';
+// import './MovieList.scss';
+import '../Sass/MovieList.scss';
+
 
 const MovieList = ({ movies, filteredMovies, calc, icon, click, display }) => {
+
   const moviesToDisplay = filteredMovies.length ? filteredMovies : movies;
 
   // const movieCards = movies.map(movie => {
