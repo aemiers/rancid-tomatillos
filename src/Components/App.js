@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import './App.scss';
-import Header from '../Header/Header';
-import MovieDetails from '../MovieDetails/MovieDetails';
+import '../Sass/App.scss';
+import Header from './Header';
+import MovieDetails from './MovieDetails';
 import tomatillo from '../assets/tomatillo.svg';
-import MovieList from '../MovieList/MovieList';
-import MovieCard from '../MovieCard/MovieCard';
-import { fetchAllMovies, fetchSingleMovie, fetchVideo } from '../Data/apiCalls';
+import MovieList from './MovieList';
+import MovieCard from './MovieCard';
+import { fetchAllMovies, fetchSingleMovie, fetchVideo} from '../Data/apiCalls';
 import logo from '../assets/logo.svg';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movieData: [], //all of the movie on home page
-      movieDetails: [], //singe movie
       filteredMovies: [],
-      pageLocation: 0,
+      singleMovieID: '', //path
       isLoading: true,
       error: '',
     }
@@ -23,8 +23,11 @@ class App extends Component {
 
   componentDidMount() {
     fetchAllMovies()
-      .then(movies => this.setState({ movieData: movies.movies }))
-      .catch(err => this.setState({ error: 'Something went wrong' }))
+      .then(movies => this.setState({
+        movieData: movies.movies}))
+      .catch(err => this.setState({
+        error: 'Something went wrong'
+      }))
   }
 
   // filterMovies function here, also need to pass filterMovies funtion to header
@@ -33,48 +36,51 @@ class App extends Component {
     return (rating.toFixed(1) * 10);
   }
 
-  clickHandler = (id) => {
-    this.setState({ movieDetails: [] })
-    this.setState({ pageLocation: id })
-    if (id) {
-      fetchSingleMovie(id)
-      .then(movie => {
-        this.setState({ movieDetails: movie.movie });
-      })
-      .catch(err => this.setState({ error: 'There was a problem loading the movie details' }))
-    }
+  stateChange = (newStateData) => {
+      this.setState({singleMovieID: newStateData})
   }
+
+  // clickHandler = (id) => {
+  //   this.setState({ movieDetails: [] })
+  //   this.setState({ pageLocation: id })
+  //   if (id) {
+  //     fetchSingleMovie(id)
+  //     .then(movie => {
+  //       this.setState({ movieDetails: movie.movie });
+  //     })
+  //     .catch(err => this.setState({ error: 'There was a problem loading the movie details' }))
+  //   }
+  // }
 
   render() {
     return (
-      <>
-        {this.state.error && (
-          <h2 className='error'>{this.state.error}</h2>
-        )}
-        {this.state.movieData.length > 0 && (
-          // {this.state.movieData && (
-          < main className='App' >
-            <Header click={this.clickHandler} />
-            {
-              !this.state.pageLocation && <MovieList
+      <> {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
+        <main className='App' >
+          <Header stateChange={this.stateChange}/>
+          <Switch>
+          <Route
+            exact
+            path="/"
+            render={() =>
+              <MovieList
                 movies={this.state.movieData}
                 calc={this.calculatePercent}
                 icon={tomatillo}
-                click={this.clickHandler}
+                stateChange={this.stateChange}/>}
               />
-            }
-            {
-              this.state.pageLocation && <MovieDetails
-                movie={this.state.movieDetails}
+          <Route
+            exact
+            path="/:id"
+            render={({ match }) =>
+              <MovieDetails
                 icon={tomatillo}
-                id={this.state.pageLocation}
+                id={match.params.id}
+                stateChange={this.stateChange}/>}
               />
-            }
-          </main >
-        )}
-      </>
-    )
+          </Switch>
+        </main >
+      </>)
+    }
   }
-}
 
-export default App;
+  export default App;

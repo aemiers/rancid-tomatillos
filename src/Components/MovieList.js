@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MovieCard from '../MovieCard/MovieCard';
-import './MovieList.scss';
+import MovieCard from './MovieCard';
+import '../Sass/MovieList.scss';
 
-const MovieList = ({ movies, calc, icon, click }) => {
+const MovieList = ({ movies, calc, icon }) => {
 
   const movieCards = movies.map(movie => {
     return (
@@ -14,7 +14,6 @@ const MovieList = ({ movies, calc, icon, click }) => {
         poster={movie.poster_path}
         rating={calc(movie.average_rating)}
         icon={icon}
-        click={click}
       />
     )
   })
@@ -35,5 +34,5 @@ MovieList.propTypes = {
   movie: PropTypes.object,
   calc: PropTypes.func,
   icon: PropTypes.string,
-  click: PropTypes.func
+  stateChange: PropTypes.func
 };

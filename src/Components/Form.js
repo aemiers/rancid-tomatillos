@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import search from '../assets/search.svg';
 import cancel from '../assets/cancel.svg';
-import './Form.scss';
+import '../Sass/Form.scss';
 
 class Form extends Component {
   constructor(props) {
