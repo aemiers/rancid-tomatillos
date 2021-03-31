@@ -7,7 +7,7 @@ import MovieList from './MovieList';
 import MovieCard from './MovieCard';
 import { fetchAllMovies, fetchSingleMovie, fetchVideo } from '../Data/apiCalls';
 import logo from '../assets/logo.svg';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -34,46 +34,47 @@ class App extends Component {
     return (rating.toFixed(1) * 10);
   }
 
-  clickHandler = (id) => {
-    this.setState({ movieDetails: [] })
-    this.setState({ pageLocation: id })
-    if (id) {
-      fetchSingleMovie(id)
-      .then(movie => {
-        this.setState({ movieDetails: movie.movie });
-      })
-      .catch(err => this.setState({ error: 'There was a problem loading the movie details' }))
-    }
-  }
+  // clickHandler = (id) => {
+  //   this.setState({ movieDetails: [] })
+  //   this.setState({ pageLocation: id })
+  //   if (id) {
+  //     fetchSingleMovie(id)
+  //     .then(movie => {
+  //       this.setState({ movieDetails: movie.movie });
+  //     })
+  //     .catch(err => this.setState({ error: 'There was a problem loading the movie details' }))
+  //   }
+  // }
 
   render() {
     return (
-      <>
-        {this.state.error && (
-          <h2 className='error'>{this.state.error}</h2>
-        )}
-        {this.state.movieData.length > 0 && (
-          // {this.state.movieData && (
-          < main className='App' >
-            <Header click={this.clickHandler} />
-            {
-              !this.state.pageLocation && <MovieList
-                movies={this.state.movieData}
-                calc={this.calculatePercent}
-                icon={tomatillo}
-                click={this.clickHandler}
-              />
-            }
-            {
-              this.state.pageLocation && <MovieDetails
-                movie={this.state.movieDetails}
-                icon={tomatillo}
-                id={this.state.pageLocation}
-              />
-            }
-          </main >
-        )}
-      </>
+        <>
+          {this.state.error && (
+            <h2 className='error'>{this.state.error}</h2>
+          )}
+            < main className='App' >
+              <Header click={this.clickHandler} />
+              <Switch>
+                <Route exact path="/" render={() => <MovieList
+                    movies={this.state.movieData}
+                    calc={this.calculatePercent}
+                    icon={tomatillo}
+                    click={this.clickHandler}
+                    />} />
+                <Route
+                  exact
+                  path="/:id"
+                  render={({ match }) => {
+                    <MovieDetails
+                    movie={this.state.movieDetails}
+                    icon={tomatillo}
+                    id={match.params.id}
+                    />}
+                  } />
+              </Switch>
+            </main >
+          )}
+        </>
     )
   }
 }

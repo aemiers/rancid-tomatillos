@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../Sass/MovieCard.scss';
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ id, title, poster, rating, icon, click }) => {
 
   return (
-    <button onClick={event => click(id)} className='movie-card'>
+    <Link to={`/${id}`} className='movie-card'>
       <img src={poster} alt={title} className='poster' />
       <aside className='card-info'>
         <div className='rating-box'>
@@ -14,7 +15,7 @@ const MovieCard = ({ id, title, poster, rating, icon, click }) => {
         </div>
         <h3 className='hover-title'>{title}</h3>
       </aside>
-    </button>
+    </Link>
   )
 }
 
