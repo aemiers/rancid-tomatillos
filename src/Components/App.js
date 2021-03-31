@@ -59,14 +59,12 @@ class App extends Component {
                     movies={this.state.movieData}
                     calc={this.calculatePercent}
                     icon={tomatillo}
-                    click={this.clickHandler}
                     />} />
                 <Route
                   exact
                   path="/:id"
                   render={({ match }) => {
                     <MovieDetails
-                    movie={this.state.movieDetails}
                     icon={tomatillo}
                     id={match.params.id}
                     />}
