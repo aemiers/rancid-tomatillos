@@ -1,6 +1,11 @@
 // describe('Rancid Tomatillos Home Page', () => {
 
 //   beforeEach(() => {
+//     // cy.fixture('movies').then((movieData) => {
+//     //   cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', movieData)
+//     // })
+//     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movie_data.json' })
+
 //     cy.visit('http://localhost:3000')
 //   })
 
@@ -112,3 +117,10 @@
 //   // });
 
 // });
+
+// testing error message 
+it('should show an error message when the server does not respond', () => {
+  cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', [])
+  cy.visit('http://localhost:3000')
+    .get('h2').contains('Oops')
+})

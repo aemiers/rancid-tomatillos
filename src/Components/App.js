@@ -29,9 +29,14 @@ class App extends Component {
 
   filterSearch = (searchWords) => {
     const formattedSearchWords = searchWords.toLowerCase();
-    this.filteredMovies = this.state.movieData.filter(movie => {
+    const resultMovies = this.state.movieData.filter(movie => {
       return movie.title.toLowerCase.includes(formattedSearchWords)
     })
+    this.setState({ filteredMovies: resultMovies })
+  }
+
+  displayCorrectMoviesList = () => {
+    return this.filteredMovies.length ? this.filteredMovies : this.movieData
   }
 
   calculatePercent = rating => {
@@ -66,6 +71,7 @@ class App extends Component {
                 calc={this.calculatePercent}
                 icon={tomatillo}
                 click={this.clickHandler}
+                display={this.displayCorrectMoviesList}
               />
             }
             {
