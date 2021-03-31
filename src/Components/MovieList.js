@@ -6,7 +6,6 @@ import './MovieList.scss';
 const MovieList = ({ movies, filteredMovies, calc, icon, click, display }) => {
   const moviesToDisplay = filteredMovies.length ? filteredMovies : movies;
 
-
   // const movieCards = movies.map(movie => {
   const movieCards = moviesToDisplay.map(movie => {
 
