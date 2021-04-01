@@ -65,7 +65,8 @@ class MovieDetails extends Component {
             <p className='overview'>{this.state.movieDetails.overview}</p>
           </section>
         </section>
-        <aside className='video-container'>
+        <div className='video-container'>
+        <aside className='iframe-container'>
           <iframe
             loading="lazy"
             gesture="media"
@@ -75,6 +76,7 @@ class MovieDetails extends Component {
             title="Embedded youtube"
           />
         </aside>
+        </div>
       </div>
     )
   }
