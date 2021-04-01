@@ -5,7 +5,7 @@ import logo from '../assets/logo.svg';
 import '../Sass/Header.scss'
 import { Link } from 'react-router-dom';
 
-const Header = (filterSearch) => {
+const Header = ({ movies, updateFilteredMovies }) => {
   return (
     <>
       <header>
@@ -14,7 +14,10 @@ const Header = (filterSearch) => {
             <img className='logo' src={logo} alt="rancid tomatillos logo" />
           </Link>
           <div className='form-container'>
-            <Form />
+            <Form
+              updateFilteredMovies={updateFilteredMovies}
+              movies={movies}
+            />
           </div>
         </section>
       </header>

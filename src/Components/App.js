@@ -16,7 +16,7 @@ class App extends Component {
       movieData: [], //all of the movie on home page
       filteredMovies: [],
       singleMovieID: '', //path
-      isLoading: true,
+      // isLoading: true,
       error: '',
     }
   }
@@ -31,13 +31,13 @@ class App extends Component {
       }))
   }
 
-  filterSearch = (searchWords) => {
-    const formattedSearchWords = searchWords.toLowerCase();
-    const resultMovies = this.state.movieData.filter(movie => {
-      return movie.title.toLowerCase.includes(formattedSearchWords)
-    })
-    this.setState({ filteredMovies: resultMovies })
-  }
+  // filterSearch = (searchWords) => {
+  //   const formattedSearchWords = searchWords.toLowerCase();
+  //   const resultMovies = this.state.movieData.filter(movie => {
+  //     return movie.title.toLowerCase.includes(formattedSearchWords)
+  //   })
+  //   this.setState({ filteredMovies: resultMovies })
+  // }
 
   calculatePercent = rating => {
     return (rating.toFixed(1) * 10);
@@ -45,6 +45,14 @@ class App extends Component {
 
   stateChange = (newStateData) => {
     this.setState({ singleMovieID: newStateData })
+  }
+  // Refactored version to also allow header to pass in data to filteredMovies
+  // stateChange = (dataLocation, newStateData) => {
+  //   this.setState({ dataLocation: newStateData })
+  // }
+
+  updateFilteredMovies = (newStateData) => {
+    this.setState({ filteredMovies: newStateData })
   }
 
   // clickHandler = (id) => {
@@ -63,7 +71,12 @@ class App extends Component {
     return (
       <> {this.state.error && (<h2 className='error' > {this.state.error} </h2>)}
         <main className='App' >
-          <Header stateChange={this.stateChange} filterSearch={this.filterSearch} />
+          <Header
+            // stateChange={this.stateChange}
+            updateFilteredMovies={this.updateFilteredMovies}
+            // filterSearch={this.filterSearch}
+            movies={this.state.movieData}
+          />
           <Switch>
             <Route
               exact
@@ -74,7 +87,9 @@ class App extends Component {
                   filteredMovies={this.state.filteredMovies}
                   calc={this.calculatePercent}
                   icon={tomatillo}
-                  stateChange={this.stateChange} />}
+                // stateChange={this.stateChange} 
+                // Do we need state change here and in movie list and movie card?
+                />}
             />
             <Route
               exact

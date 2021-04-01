@@ -27,5 +27,5 @@ MovieCard.propTypes = {
   poster: PropTypes.string,
   rating: PropTypes.number,
   icon: PropTypes.string,
-  stateChange: PropTypes.func
+  // stateChange: PropTypes.func
 };

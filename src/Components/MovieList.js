@@ -40,5 +40,5 @@ MovieList.propTypes = {
   movie: PropTypes.object,
   calc: PropTypes.func,
   icon: PropTypes.string,
-  stateChange: PropTypes.func
+  // stateChange: PropTypes.func
 };
