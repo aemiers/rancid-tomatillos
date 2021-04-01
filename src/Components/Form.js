@@ -17,21 +17,18 @@ class Form extends Component {
 
   filterSearch = () => {
     const formattedSearchWords = this.state.searchWords.toLowerCase();
+    console.log('format', formattedSearchWords)
     const resultMovies = this.props.movies.filter(movie => {
       return movie.title.toLowerCase().includes(formattedSearchWords)
     })
-    this.props.updateFilteredMovies(resultMovies)
+    this.props.updateFilteredMovies(resultMovies);
   }
 
-  submitSearchWords = event => {
-    event.preventDefault();
+  clearInputs = event => {
+    event.preventDefault(event);
     this.handleChange(event);
-    this.filterSearch();
-    // this.props.filterMovies(this.state.value)
-  }
-
-  clearInputs = () => {
     this.setState({ searchWords: '' });
+    this.props.updateFilteredMovies([]);
   }
 
   render() {
@@ -43,9 +40,10 @@ class Form extends Component {
           placeholder='Search for movies'
           name='search'
           value={this.state.searchWords}
-          onChange={event => this.submitSearchWords(event)}
+          onChange={this.handleChange}
+          onKeyUp={this.filterSearch}
         />
-        <button onClick={this.clearInputs}><img className='clear-icon' src={cancel} alt="clear button" /></button>
+        <button onClick={event => this.clearInputs(event)}><img className='clear-icon' src={cancel} alt="clear button" /></button>
       </form>
     )
   }
