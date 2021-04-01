@@ -20,12 +20,3 @@ const MovieCard = ({ id, title, poster, rating, icon, }) => {
 }
 
 export default MovieCard;
-
-MovieCard.propTypes = {
-  id: PropTypes.number,
-  title: PropTypes.string,
-  poster: PropTypes.string,
-  rating: PropTypes.number,
-  icon: PropTypes.string,
-  stateChange: PropTypes.func
-};

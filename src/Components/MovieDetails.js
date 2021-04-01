@@ -16,14 +16,11 @@ class MovieDetails extends Component {
   componentDidMount() {
     this.props.stateChange(this.props.id);
     Promise.all([fetchSingleMovie(this.props.id), fetchVideo(this.props.id)])
-      .this((movieData) => {
-        this.setthis.setState({ movieDetails: movie.movie })
-        this.setState({ videos: videos.videos})
-      });
-      // .then(movie => )
-      // // .catch(err => this.setState({ error: 'Something went wrong' }))
-      //
-      // .then(videos => )
+      .then((movieData) => {
+        this.setState({ movieDetails: movieData[0].movie})
+        this.setState({ videos: movieData[1].videos})
+      })
+      // .catch(err => this.setState({ error: 'Something went wrong' }));
   }
 
 
@@ -48,9 +45,15 @@ class MovieDetails extends Component {
     return
   }
 
+  formatVideos = videos => {
+    if (videos.length) {
+      return videos[0].key
+    }
+  }
+
   render() {
     return (
-      <>
+      <div className="flex-container">
         <section className="movie-details-section">
           <div className='backdrop-container'>
             <img className='backdrop' alt="movie backdrop" src={this.state.movieDetails.backdrop_path} />
@@ -63,20 +66,20 @@ class MovieDetails extends Component {
           </section>
         </section>
         <aside className='video-container'>
-        {console.log(this.state.videos[0])}
           <iframe
-            width="853"
-            height="480"
-            // src={`https://www.youtube.com/embed/${this.state.videos[0].key}`}
-            frameBorder="0"
+            loading="lazy"
+            gesture="media"
+            src={`https://www.youtube.com/embed/${this.formatVideos(this.state.videos)}`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             title="Embedded youtube"
           />
         </aside>
-      </>
+      </div>
     )
   }
 }
+
+
 
 export default MovieDetails;
