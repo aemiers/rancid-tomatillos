@@ -3,9 +3,15 @@ import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 import '../Sass/MovieList.scss';
 
-const MovieList = ({ movies, calc, icon }) => {
+// const MovieList = ({ movies, calc, icon }) => {
 
-  const movieCards = movies.map(movie => {
+const MovieList = ({ movies, filteredMovies, calc, icon, click, display }) => {
+
+  const moviesToDisplay = filteredMovies.length ? filteredMovies : movies;
+
+  // const movieCards = movies.map(movie => {
+  const movieCards = moviesToDisplay.map(movie => {
+
     return (
       <MovieCard
         key={movie.id}
@@ -34,5 +40,5 @@ MovieList.propTypes = {
   movie: PropTypes.object,
   calc: PropTypes.func,
   icon: PropTypes.string,
-  stateChange: PropTypes.func
+  // stateChange: PropTypes.func
 };

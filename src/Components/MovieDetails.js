@@ -15,14 +15,24 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     this.props.stateChange(this.props.id);
+
+    
+    
     Promise.all([fetchSingleMovie(this.props.id), fetchVideo(this.props.id)])
       .then((movieData) => {
         this.setState({ movieDetails: movieData[0].movie})
         this.setState({ videos: movieData[1].videos})
       })
       // .catch(err => this.setState({ error: 'Something went wrong' }));
-  }
 
+    
+    //merge conflict was here, 20-33
+    fetchSingleMovie(this.props.id)
+      .then(movie => this.setState({ movieDetails: movie.movie }))
+    // .catch(err => this.setState({ error: 'Something went wrong' }))
+
+    
+  }
 
   formatYear = movieDate => {
     return new Date(movieDate).getFullYear()
