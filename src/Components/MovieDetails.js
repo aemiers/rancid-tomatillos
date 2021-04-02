@@ -21,7 +21,7 @@ class MovieDetails extends Component {
         console.log(movieData);
         this.setState({ movieInfo: this.buildStateObject(movieData)})
       })
-      // .catch(err => this.setState({ error: 'Something went wrong' }));
+      .catch(err => this.setState({ error: 'Something went wrong' }));
   }
 
   buildStateObject(movieData) {
