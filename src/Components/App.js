@@ -24,8 +24,6 @@ class App extends Component {
 
   componentDidMount() {
     fetchAllMovies()
-      // .then(movies => this.setState({
-      //   movieData: movies.movies}))
       .then(movies => this.setState({
         movieData: this.prepMovieData(movies.movies)}))
       .catch(err => this.setState({
@@ -52,7 +50,8 @@ class App extends Component {
 
   render() {
     return (
-      <> {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
+      <>
+        {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
         <main className='App' >
           <Header stateChange={this.stateChange}/>
           <Switch>
@@ -77,7 +76,8 @@ class App extends Component {
               />
           </Switch>
         </main >
-      </>)
+      </>
+      )
     }
   }
 
