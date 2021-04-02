@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../Sass/MovieDetails.scss';
 import { fetchSingleMovie, fetchVideo } from '../Data/apiCalls';
-import { formatYear, formatRunTime, calculatePercent, formatGenre, formatVideos, formatRating } from '../utilities';
+import { formatYear, formatRunTime, calculatePercent, formatGenre, formatVideo, formatRating } from '../utilities';
 
 
 class MovieDetails extends Component {
@@ -18,7 +18,6 @@ class MovieDetails extends Component {
     this.props.stateChange(this.props.id);
     Promise.all([fetchSingleMovie(this.props.id), fetchVideo(this.props.id)])
       .then((movieData) => {
-        console.log(movieData);
         this.setState({ movieInfo: this.buildStateObject(movieData)})
       })
       .catch(err => this.setState({ error: 'Something went wrong' }));
@@ -33,7 +32,7 @@ class MovieDetails extends Component {
       genre: formatGenre(movieData[0].movie.genres),
       release_date: formatYear(movieData[0].movie.release_date),
       runtime: formatRunTime(movieData[0].movie.runtime),
-      // videoKey: formatVideo(movieData[1].videos)
+      videoKey: formatVideo(movieData[1].videos)
      };
       return movie;
   }
@@ -57,7 +56,7 @@ class MovieDetails extends Component {
         <aside className='iframe-container'>
           <iframe
             loading="lazy"
-            src={`https://www.youtube.com/embed/${this.state.videoKey}`}
+            src={`https://www.youtube.com/embed/${this.state.movieInfo.videoKey}`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             title="Embedded youtube"
