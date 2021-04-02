@@ -29,3 +29,4 @@ MovieCard.propTypes = {
   icon: PropTypes.string,
   // stateChange: PropTypes.func
 };
+

@@ -8,15 +8,30 @@ class MovieDetails extends Component {
   constructor() {
     super();
     this.state = {
-      movieDetails: {}
+      movieDetails: {},
+      videos: []
     }
   }
 
   componentDidMount() {
     this.props.stateChange(this.props.id);
+
+    
+    
+    Promise.all([fetchSingleMovie(this.props.id), fetchVideo(this.props.id)])
+      .then((movieData) => {
+        this.setState({ movieDetails: movieData[0].movie})
+        this.setState({ videos: movieData[1].videos})
+      })
+      // .catch(err => this.setState({ error: 'Something went wrong' }));
+
+    
+    //merge conflict was here, 20-33
     fetchSingleMovie(this.props.id)
       .then(movie => this.setState({ movieDetails: movie.movie }))
     // .catch(err => this.setState({ error: 'Something went wrong' }))
+
+    
   }
 
   formatYear = movieDate => {
@@ -40,21 +55,43 @@ class MovieDetails extends Component {
     return
   }
 
+  formatVideos = videos => {
+    if (videos.length) {
+      return videos[0].key
+    }
+  }
+
   render() {
     return (
-      <section className="movie-details-section">
-        <div className='backdrop-container'>
-          <img className='backdrop' alt="movie backdrop" src={this.state.movieDetails.backdrop_path} />
-          <div className='overlay'> </div>
-        </div>
-        <section className='movie-words-container'>
-          <h1 className='movie-words__title'>{this.state.movieDetails.title}</h1>
-          <h2 className='movie-words__details'><img className='tomatillo' src={this.props.icon} alt='tomatillo icon' />{this.calculatePercent(this.state.movieDetails.average_rating)}% · {this.formatGenre(this.state.movieDetails.genres)} · {this.formatYear(this.state.movieDetails.release_date)} · {this.formatRunTime(this.state.movieDetails.runtime)}</h2>
-          <p className='overview'>{this.state.movieDetails.overview}</p>
+      <div className="flex-container">
+        <section className="movie-details-section">
+          <div className='backdrop-container'>
+            <img className='backdrop' alt="movie backdrop" src={this.state.movieDetails.backdrop_path} />
+            <div className='overlay'> </div>
+          </div>
+          <section className='movie-words-container'>
+            <h1 className='movie-words__title'>{this.state.movieDetails.title}</h1>
+            <h2 className='movie-words__details'><img className='tomatillo' src={this.props.icon} alt='tomatillo icon' />{this.calculatePercent(this.state.movieDetails.average_rating)}% · {this.formatGenre(this.state.movieDetails.genres)} · {this.formatYear(this.state.movieDetails.release_date)} · {this.formatRunTime(this.state.movieDetails.runtime)}</h2>
+            <p className='overview'>{this.state.movieDetails.overview}</p>
+          </section>
         </section>
-      </section>
+        <div className='video-container'>
+        <aside className='iframe-container'>
+          <iframe
+            loading="lazy"
+            gesture="media"
+            src={`https://www.youtube.com/embed/${this.formatVideos(this.state.videos)}`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Embedded youtube"
+          />
+        </aside>
+        </div>
+      </div>
     )
   }
 }
+
+
 
 export default MovieDetails;

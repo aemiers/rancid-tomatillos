@@ -8,7 +8,6 @@ export const fetchAllMovies = () => {
 }
 
 export const fetchSingleMovie = (id) => {
-  // return fetch(`${baseURL}/movies/:movie_id`)
   return fetch(`${baseURL}/movies/${id}`)
     .then(response => {
       return response.json()
@@ -22,7 +21,7 @@ export const fetchVideo = (id) => {
     })
 }
 
-//combine the last two functions
+// combine the last two functions
 
 // export const getSingleMovieData = (id) => {
 //   const clickedMovieData = Promise.all([
