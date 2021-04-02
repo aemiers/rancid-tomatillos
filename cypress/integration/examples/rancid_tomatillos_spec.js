@@ -2,6 +2,8 @@ describe('Rancid Tomatillos Home Page', () => {
 
   beforeEach(() => {
     cy
+      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', { fixture: 'trailer_data.json' })
+      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', { fixture: 'movie_details.json' })
       .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movie_data.json' })
       .visit('http://localhost:3000')
   })
@@ -44,26 +46,22 @@ describe('Rancid Tomatillos Home Page', () => {
   //     })
   // });
 
-  // it('Should be able to click on a mini-movie poster and be redirected to a new link', () => {
-  //   cy
-  //     .on('uncaught:exception', (err, runnable) => {
-  //       return false
-  //     })
-  //     .get('.movie-card:first').click()
-  //     .get('.movie-title').contains('Test 1')
-  //     .url().should('include', '694919')
-  // });
+  it('Should be able to click on a mini-movie poster and be redirected to a new link', () => {
+    cy
+      .get('.movie-card:first').contains('Money').click()
+      .url().should('include', '694919')
+  });
 });
 
 describe('Movie Details Page', () => {
-  beforeEach(() => {
-    cy
-      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', { fixture: 'trailer-data.json' })
-      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', { fixture: 'single-movie-data.json' })
-      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'mock-movie-data.json' })
-      .visit('http://localhost:3000')
-    // .get('.poster:first').click()
-  })
+  // beforeEach(() => {
+  //   cy
+  //     .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', { fixture: 'trailer_data.json' })
+  //     .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', { fixture: 'movie_details.json' })
+  //     .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movie_data.json' })
+  //     .visit('http://localhost:3000')
+  //     .get('.movie-card:first').click()
+  // })
 
   it('Should display the movie\'s title, rating, genre, year, and run time', () => {
     cy
@@ -84,8 +82,8 @@ describe('Movie Details Page', () => {
 
 
 
-it('Should play the trailer when clicked on', () => {
-});
+// it('Should play the trailer when clicked on', () => {
+// });
 
 
 // testing error message 
