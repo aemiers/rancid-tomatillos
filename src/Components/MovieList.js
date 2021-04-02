@@ -12,8 +12,8 @@ const MovieList = ({ movies, calc, icon }) => {
         key={movie.id}
         id={movie.id}
         title={movie.title}
-        poster={movie.poster_path}
-        rating={formatRating(movie.average_rating)}
+        poster={movie.poster}
+        rating={movie.rating}
         icon={icon}
       />
     )

@@ -8,33 +8,43 @@ import MovieCard from './MovieCard';
 import { fetchAllMovies, fetchSingleMovie, fetchVideo} from '../Data/apiCalls';
 import logo from '../assets/logo.svg';
 import { Route, Switch } from 'react-router-dom';
+import { formatRating } from '../utilities';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      movieData: [], //all of the movie on home page
+      movieData: [],
       filteredMovies: [],
-      singleMovieID: '', //path
+      singleMovieID: '',
       isLoading: true,
-      error: '',
+      error: ''
     }
   }
 
   componentDidMount() {
     fetchAllMovies()
+      // .then(movies => this.setState({
+      //   movieData: movies.movies}))
       .then(movies => this.setState({
-        movieData: movies.movies}))
+        movieData: this.prepMovieData(movies.movies)}))
       .catch(err => this.setState({
-        error: 'Something went wrong'
+        error: 'Something went wrong. Please reload the page and try again.'
       }))
+      this.setState({ isLoading: false});
   }
 
-  // filterMovies function here, also need to pass filterMovies funtion to header
-
-  // calculatePercent = rating => {
-  //   return (rating.toFixed(1) * 10);
-  // }
+  prepMovieData(movieData) {
+    const cleanData = movieData.map(movie => {
+      return {
+        id: movie.id,
+        title: movie.title,
+        poster: movie.poster_path,
+        rating: formatRating(movie.average_rating)}
+    })
+    console.log(cleanData);
+    return cleanData;
+  }
 
   stateChange = (newStateData) => {
       this.setState({singleMovieID: newStateData})

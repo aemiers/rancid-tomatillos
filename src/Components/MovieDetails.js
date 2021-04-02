@@ -18,12 +18,12 @@ class MovieDetails extends Component {
     this.props.stateChange(this.props.id);
     Promise.all([fetchSingleMovie(this.props.id), fetchVideo(this.props.id)])
       .then((movieData) => {
-        this.setState({ movieInfo: this.buildStateObject(movieData)})
+        this.setState({ movieInfo: this.buildMovieObject(movieData)})
       })
-      .catch(err => this.setState({ error: 'Something went wrong' }));
+      .catch(err => this.setState({ error: 'Something went wrong. Please reload the page and try again.' }));
   }
 
-  buildStateObject(movieData) {
+  buildMovieObject(movieData) {
     const movie = {
       backdrop: movieData[0].movie.backdrop_path,
       title: movieData[0].movie.title,
@@ -40,6 +40,8 @@ class MovieDetails extends Component {
 
   render() {
     return (
+    <>
+      {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
       <div className="flex-container">
         <section className="movie-details-section">
           <div className='backdrop-container'>
@@ -64,6 +66,7 @@ class MovieDetails extends Component {
         </aside>
         </div>
       </div>
+    </>
     )
   }
 }
