@@ -17,11 +17,9 @@ class Form extends Component {
 
   filterSearch = () => {
     const formattedSearchWords = this.state.searchWords.toLowerCase();
-    // console.log('format', formattedSearchWords)
     const resultMovies = this.props.movies.filter(movie => {
       return movie.title.toLowerCase().includes(formattedSearchWords)
     })
-    console.log('resultMovies', resultMovies)
     this.props.stateChange('filteredMovies', resultMovies);
   }
 
