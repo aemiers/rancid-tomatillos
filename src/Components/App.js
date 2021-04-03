@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   stateChange = (dataLocation, newStateData) => {
-    this.setState({ dataLocation: newStateData })
+    this.setState({ [dataLocation]: newStateData })
   }
 
   render() {
@@ -52,7 +52,11 @@ class App extends Component {
       <>
         {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
         <main className='App' >
-          <Header stateChange={this.stateChange}/>
+          <Header
+            stateChange={this.stateChange}
+            movies={this.state.movieData}
+            filteredMovies={this.filteredMovies}
+          />
           <Switch>
           <Route
             exact
