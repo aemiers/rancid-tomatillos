@@ -4,7 +4,15 @@ import MovieCard from './MovieCard';
 import '../Sass/MovieList.scss';
 import { formatRating } from '../utilities';
 
+
 const MovieList = ({ movies, calc, icon }) => {
+
+
+
+// const MovieList = ({ movies, filteredMovies, calc, icon, click, display }) => {
+
+//   const moviesToDisplay = filteredMovies.length ? filteredMovies : movies;
+//   const movieCards = moviesToDisplay.map(movie => {
 
   const movieCards = movies.map(movie => {
     return (
