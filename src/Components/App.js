@@ -26,9 +26,7 @@ class App extends Component {
     fetchAllMovies()
       .then(movies => this.setState({
         movieData: this.prepMovieData(movies.movies)}))
-      .catch(err => this.setState({
-        error: 'Something went wrong. Please reload the page and try again.'
-      }))
+      .catch(err => this.setState({ error: `${err} Something went wrong. Please reload the page and try again.` }))
       this.stateChange('isLoading', false);
   }
 
@@ -50,13 +48,23 @@ class App extends Component {
   render() {
     return (
       <>
-        {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
         <main className='App' >
           <Header
             stateChange={this.stateChange}
             movies={this.state.movieData}
             filteredMovies={this.filteredMovies}
           />
+          {this.state.isLoading && (
+            <div className = 'load-container'>
+              <h2> Page loading... </h2>
+              <div className="spinner-box">
+                <div className="circle-border">
+                  <div className="circle-core"></div>
+                </div>
+              </div>
+            </div>
+          )}
+          {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
           <Switch>
           <Route
             exact

@@ -10,7 +10,8 @@ class MovieDetails extends Component {
     super();
     this.state = {
       movieInfo: {},
-      error: ''
+      error: '',
+      isLoading: true
     }
   };
 
@@ -20,7 +21,8 @@ class MovieDetails extends Component {
       .then((movieData) => {
         this.setState({ movieInfo: this.buildMovieObject(movieData)})
       })
-      .catch(err => this.setState({ error: 'Something went wrong. Please reload the page and try again.' }));
+      .catch(err => this.setState({ error: `${err} Something went wrong. Please reload the page and try again.` }));
+      this.setState({ isLoading: false});
   }
 
   buildMovieObject(movieData) {
@@ -41,6 +43,16 @@ class MovieDetails extends Component {
   render() {
     return (
     <>
+      {this.state.isLoading && (
+        <div className = 'load-container'>
+          <h2> Page loading... </h2>
+          <div className="spinner-box">
+            <div className="circle-border">
+              <div className="circle-core"></div>
+            </div>
+          </div>
+        </div>
+      )}
       {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
       <div className="flex-container">
         <section className="movie-details-section">
