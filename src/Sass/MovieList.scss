@@ -2,8 +2,33 @@
 
 .mainList {
   @include pageMargins;
-  h1 {
-    margin: 20px 0 20px 0;
+  // h1 {
+  //   margin: 20px 0 20px 0;
+  // }
+}
+
+.filter-container {
+  display: flex;
+  width: 100%;
+
+  .filter-button {
+    width: 8rem;
+    height: 3rem;
+    border-radius: 15px;
+    border: $white;
+    color: $white;
+    background: $lighter-grey;
+    @include whiteBorder;
+    margin-right: 10px;
+
+  &:focus {
+    @include filterBtnOn;
+  }
+
+  &:hover {
+    @include filterBtnOn;
+    @include cursor;
+    }
   }
 }
 
