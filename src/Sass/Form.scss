@@ -9,17 +9,16 @@ input {
   border-radius: 22px;
   padding-left: 55px;
   background-color: $lighter-grey;
-  border: 2px solid white;
+  @include whiteBorder;
   font-size: 1.75rem;
   color: $white;
 
   &:focus {
-    box-shadow: 0 0 5px 0 white;
-    outline: none;
+    @include focus;
   }
 }
 
-button {
+.clear-button {
   @include cursor;
   position: absolute;
   top: 10px;

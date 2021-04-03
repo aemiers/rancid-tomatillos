@@ -43,7 +43,7 @@ class Form extends Component {
           onChange={this.handleChange}
           onKeyUp={this.filterSearch}
         />
-        <button onClick={event => this.clearInputs(event)}><img className='clear-icon' src={cancel} alt="clear button" /></button>
+        <button className='clear-button' onClick={event => this.clearInputs(event)}><img className='clear-icon' src={cancel} alt="clear button" /></button>
       </form>
     )
   }
