@@ -29,7 +29,7 @@ class App extends Component {
       .catch(err => this.setState({
         error: 'Something went wrong. Please reload the page and try again.'
       }))
-      this.setState({ isLoading: false});
+      this.stateChange('isLoading', false);
   }
 
   prepMovieData(movieData) {
@@ -40,12 +40,11 @@ class App extends Component {
         poster: movie.poster_path,
         rating: formatRating(movie.average_rating)}
     })
-    console.log(cleanData);
     return cleanData;
   }
 
-  stateChange = (newStateData) => {
-      this.setState({singleMovieID: newStateData})
+  stateChange = (dataLocation, newStateData) => {
+    this.setState({ dataLocation: newStateData })
   }
 
   render() {
@@ -61,10 +60,10 @@ class App extends Component {
             render={() =>
               <MovieList
                 movies={this.state.movieData}
-                calc={this.calculatePercent}
+                filteredMovies={this.state.filteredMovies}
                 icon={tomatillo}
-                stateChange={this.stateChange}/>}
-              />
+              />}
+          />
           <Route
             exact
             path="/:id"
@@ -72,8 +71,9 @@ class App extends Component {
               <MovieDetails
                 icon={tomatillo}
                 id={match.params.id}
-                stateChange={this.stateChange}/>}
-              />
+                stateChange={this.stateChange}
+              />}
+          />
           </Switch>
         </main >
       </>

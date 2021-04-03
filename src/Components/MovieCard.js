@@ -10,8 +10,8 @@ const MovieCard = ({ id, title, poster, rating, icon, }) => {
       <img src={poster} alt={title} className='poster' />
       <aside className='card-info'>
         <div className='rating-box'>
-          <img className='tomatillo' src={icon} alt='tomatillo icon' />
-          <h4 className='rating'>{rating}%</h4>
+          <img src={icon} alt='tomatillo icon' />
+          <h4>{rating}%</h4>
         </div>
         <h3 className='hover-title'>{title}</h3>
       </aside>
@@ -27,6 +27,4 @@ MovieCard.propTypes = {
   poster: PropTypes.string,
   rating: PropTypes.number,
   icon: PropTypes.string,
-  // stateChange: PropTypes.func
 };
-

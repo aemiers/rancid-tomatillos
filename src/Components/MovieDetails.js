@@ -15,7 +15,7 @@ class MovieDetails extends Component {
   };
 
   componentDidMount() {
-    this.props.stateChange(this.props.id);
+    this.props.stateChange('singleMovieID', this.props.id);
     Promise.all([fetchSingleMovie(this.props.id), fetchVideo(this.props.id)])
       .then((movieData) => {
         this.setState({ movieInfo: this.buildMovieObject(movieData)})
@@ -34,7 +34,7 @@ class MovieDetails extends Component {
       runtime: formatRunTime(movieData[0].movie.runtime),
       videoKey: formatVideo(movieData[1].videos)
      };
-      return movie;
+    return movie;
   }
 
 
