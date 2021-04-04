@@ -20,13 +20,19 @@ class Form extends Component {
   filterSearch = (event) => {
     const formattedSearchWords = this.state.searchWords.toLowerCase();
     const resultMovies = this.props.movies.filter(movie => {
-      return movie.title.toLowerCase().includes(formattedSearchWords)
+      return (movie.title.toLowerCase().includes(formattedSearchWords))
     })
-    this.props.stateChange('filteredMovies', resultMovies);
-    // if (event.keyCode === 13) {
-    //   <Redirect to={'/'} />
-    //   console.log('yooooo')
-    // }
+    if (!resultMovies.length) {
+      this.props.stateChange('error', 'No movies found')
+      this.props.stateChange('filteredMovies', []);
+      // if (event.keyCode === 13) {
+      //   <Redirect to={'/'} />
+      //   console.log('yooooo')
+      // }
+    } else {
+      this.props.stateChange('error', '')
+      this.props.stateChange('filteredMovies', resultMovies);
+    }
   }
 
   clearInputs = event => {

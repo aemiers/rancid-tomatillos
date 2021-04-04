@@ -10,17 +10,19 @@ class MovieDetails extends Component {
     super();
     this.state = {
       movieInfo: {},
-      error: ''
+      error: '',
+      isLoading: true
     }
   };
 
   componentDidMount() {
-    this.props.stateChange(this.props.id);
+    this.props.stateChange('singleMovieID', this.props.id);
     Promise.all([fetchSingleMovie(this.props.id), fetchVideo(this.props.id)])
       .then((movieData) => {
         this.setState({ movieInfo: this.buildMovieObject(movieData)})
+        this.setState({ isLoading: false});
       })
-      .catch(err => this.setState({ error: 'Something went wrong. Please reload the page and try again.' }));
+      .catch(err => this.setState({ error: 'There was an error loading this movie.' }));
   }
 
   buildMovieObject(movieData) {
@@ -34,14 +36,23 @@ class MovieDetails extends Component {
       runtime: formatRunTime(movieData[0].movie.runtime),
       videoKey: formatVideo(movieData[1].videos)
      };
-      return movie;
+    return movie;
   }
-
 
   render() {
     return (
     <>
-      {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
+      {this.state.isLoading && (
+        <div className = 'load-container'>
+          <h2> Page loading... </h2>
+          <div className="spinner-box">
+            <div className="circle-border">
+              <div className="circle-core"></div>
+            </div>
+          </div>
+        </div>
+      )}
+      {this.state.error && ( <p data-cy = 'error' className = 'error' > {this.state.error} </p>)}
       <div className="flex-container">
         <section className="movie-details-section">
           <div className='backdrop-container'>

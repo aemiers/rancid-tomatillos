@@ -6,8 +6,9 @@ import '../Sass/MovieList.scss';
 import { formatRating } from '../utilities';
 import Dropdown from './Dropdown';
 
-
 const MovieList = ({ movies, filteredMovies, icon }) => {
+
+  // const MovieList = ({ movies, filteredMovies, icon }) => {
 
   // const filterBtnSearch = event => {
   //   event.preventDefault();
@@ -53,6 +54,6 @@ export default MovieList;
 
 MovieList.propTypes = {
   movie: PropTypes.object,
-  calc: PropTypes.func,
+  filteredMovies: PropTypes.array,
   icon: PropTypes.string,
 };
