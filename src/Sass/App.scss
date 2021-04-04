@@ -14,3 +14,11 @@
     width: 174px;
   }
 }
+
+.error {
+  @include error;
+}
+
+.load-container {
+  @include load-container;
+}

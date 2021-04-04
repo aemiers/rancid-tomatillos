@@ -12,3 +12,60 @@
   transition: transform 300ms;
   transition: all 0.2s ease-in-out;
 }
+
+@mixin error {
+  margin: 10px auto;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+@mixin load-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    margin-top: 20px;
+    font-size: 25px;
+  }
+
+  .spinner-box {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  .circle-border {
+    width: 50px;
+    height: 50px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: $dark-grey;
+    background: linear-gradient(0deg, $green 33%, $lighter-grey 100%);
+    animation: spin .8s linear 0s infinite;
+  }
+
+  .circle-core {
+    width: 100%;
+    height: 100%;
+    background-color: #1d2630;
+    border-radius: 50%;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}

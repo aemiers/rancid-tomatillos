@@ -24,12 +24,11 @@ class App extends Component {
 
   componentDidMount() {
     fetchAllMovies()
-      .then(movies => this.setState({
-        movieData: this.prepMovieData(movies.movies)}))
-      .catch(err => this.setState({
-        error: 'Something went wrong. Please reload the page and try again.'
-      }))
-      this.setState({ isLoading: false});
+      .then((movies) => {
+        this.setState({ movieData: this.prepMovieData(movies.movies) })
+        this.stateChange('isLoading', false);
+      })
+      .catch(err => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
   }
 
   prepMovieData(movieData) {
@@ -40,20 +39,33 @@ class App extends Component {
         poster: movie.poster_path,
         rating: formatRating(movie.average_rating)}
     })
-    console.log(cleanData);
     return cleanData;
   }
 
-  stateChange = (newStateData) => {
-      this.setState({singleMovieID: newStateData})
+  stateChange = (dataLocation, newStateData) => {
+    this.setState({ [dataLocation]: newStateData })
   }
 
   render() {
     return (
       <>
-        {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
         <main className='App' >
-          <Header stateChange={this.stateChange}/>
+          <Header
+            stateChange={this.stateChange}
+            movies={this.state.movieData}
+            filteredMovies={this.filteredMovies}
+          />
+          {this.state.isLoading && (
+            <div className = 'load-container'>
+              <h2> Page loading... </h2>
+              <div className="spinner-box">
+                <div className="circle-border">
+                  <div className="circle-core"></div>
+                </div>
+              </div>
+            </div>
+          )}
+          {this.state.error && ( <p className = 'error' > {this.state.error} </p>)}
           <Switch>
           <Route
             exact
@@ -61,10 +73,10 @@ class App extends Component {
             render={() =>
               <MovieList
                 movies={this.state.movieData}
-                calc={this.calculatePercent}
+                filteredMovies={this.state.filteredMovies}
                 icon={tomatillo}
-                stateChange={this.stateChange}/>}
-              />
+              />}
+          />
           <Route
             exact
             path="/:id"
@@ -72,8 +84,9 @@ class App extends Component {
               <MovieDetails
                 icon={tomatillo}
                 id={match.params.id}
-                stateChange={this.stateChange}/>}
-              />
+                stateChange={this.stateChange}
+              />}
+          />
           </Switch>
         </main >
       </>

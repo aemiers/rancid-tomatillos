@@ -54,44 +54,48 @@ describe('Rancid Tomatillos Home Page', () => {
 });
 
 describe('Movie Details Page', () => {
-  // beforeEach(() => {
-  //   cy
-  //     .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', { fixture: 'trailer_data.json' })
-  //     .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', { fixture: 'movie_details.json' })
-  //     .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movie_data.json' })
-  //     .visit('http://localhost:3000')
-  //     .get('.movie-card:first').click()
-  // })
+  beforeEach(() => {
+    cy
+      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', { fixture: 'trailer_data.json' })
+      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', { fixture: 'movie_details.json' })
+      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movie_data.json' })
+      .visit('http://localhost:3000')
+      .get('.movie-card:first').click()
+  })
 
   it('Should display the movie\'s title, rating, genre, year, and run time', () => {
     cy
       .url().should('include', '694919')
-    // .get('.movie-title').should.contain('Test 1')
-    // .get('.trailer').contains('Trailer')
-    // .get('.backdrop').contains('oazPqs1z78LcIOFslbKtJLGlueo')
-    // .get('.movie-words__title').contains('Fake')
-    // .get('.movie-words__details').contains('buzzwords')
-    // .get('.tomatillo').should('have.attr', 'src')
-    //         { calculatePercent(movie.average_rating)
-    // }% · { formatGenre(movie.genres)} · { formatYear(movie.release_date) } · { formatRunTime(movie.runtime) }</h2 >
-    //   <p className='overview'>{movie.overview}</p>
+      .get('.movie-words__title').contains('Money Plane')
+      .get('.backdrop-container').should('be.visible')
+      .get('iframe').should('be.visible')
+      .get('.tomatillo').should('have.attr', 'src')
+      .get('.movie-words__details').contains('61% · Action · 2020 · 1h 22m')
+      .get('.overview').contains(`A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.`)
   });
+
+  it('Should allow users to click the logo to return to the home page', () => {
+    cy.get('.logo').click();
+    cy.url().should('include', 'http://localhost:3000')
+  })
+})
+
+describe('Error testing', () => {
+  it('Should show an error message when the list of movies does not load', () => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', [])
+    cy.visit('http://localhost:3000')
+    .get('p').contains('There was a loading error. Please reload the page and try again.')
+  })
+
+  it('Should show an error message when a movie detail page does not load', () => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', [])
+    cy.visit('http://localhost:3000/694919')
+    .get('[data-cy=error]').contains('There was an error loading this movie.')
+  })
 
 })
 
-
-
-
-// it('Should play the trailer when clicked on', () => {
-// });
-
-
-// testing error message 
-// it('should show an error message when the server does not respond', () => {
-//   cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', [])
-//   cy.visit('http://localhost:3000')
-//     .get('h2').contains('Oops')
-// })
+// testing error message
 
 // it('should go back or forward in the browser\'s history', () => {
 //   // https://on.cypress.io/go

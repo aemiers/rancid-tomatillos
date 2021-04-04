@@ -85,3 +85,7 @@
     height: 100%;
   }
 }
+
+.load-container {
+  @include load-container;
+}
