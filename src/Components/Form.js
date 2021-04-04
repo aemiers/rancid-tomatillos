@@ -18,9 +18,15 @@ class Form extends Component {
   filterSearch = () => {
     const formattedSearchWords = this.state.searchWords.toLowerCase();
     const resultMovies = this.props.movies.filter(movie => {
-      return movie.title.toLowerCase().includes(formattedSearchWords)
+      return (movie.title.toLowerCase().includes(formattedSearchWords))
     })
-    this.props.stateChange('filteredMovies', resultMovies);
+    if (!resultMovies.length) {
+      this.props.stateChange('error', 'No movies found')
+      this.props.stateChange('filteredMovies', []);    
+    } else {
+      this.props.stateChange('error', '')
+      this.props.stateChange('filteredMovies', resultMovies);
+    }
   }
 
   clearInputs = event => {

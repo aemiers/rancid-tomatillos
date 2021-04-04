@@ -39,7 +39,6 @@ class MovieDetails extends Component {
     return movie;
   }
 
-
   render() {
     return (
     <>
