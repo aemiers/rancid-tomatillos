@@ -10,10 +10,17 @@
   margin-bottom: 5px;
 }
 
+.menu-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .drop-down__menu {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   background-color: $dark-grey;
   outline: none;
   border: none;
@@ -21,32 +28,8 @@
   margin-top: 10px;
   height: 2rem;
   z-index: 1;
-
-  &:hover {
-    @include cursor;
-    transform: scale(1.22);
-  }
-
-  &:focus {
-    transform: scale(1.22);
-  }
-
-  &__choice {
-    border: none;
-    background-color: $lighter-grey;
-    @include cursor;
-    float: left;
-    padding: 1rem;
-    position: relative;
-    text-decoration: none;
-    transition-duration: 0.5s;
-    display: block;
-
-    &:hover {
-      background-color: $green;
-      cursor: pointer;
-    }
-  }
+  position: absolute;
+  padding-top: 30px;
 }
 
 .drop-down {
@@ -58,6 +41,11 @@
   @include transition;
   margin-top: 10px;
   height: 2rem;
+  position: absolute;
+  // top: 8rem;
+  // right: 10rem;
+  z-index: 2;
+
 
   &:hover {
     @include cursor;
@@ -68,47 +56,28 @@
     transform: scale(1.22);
   }
 
-  &__content {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
-    // visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    transition: all 0.5s ease;
-    margin-top: 1rem;
-    right: 9rem;
-    // display: none;
-    z-index: 1;
-  }
-
   &__choice {
     border: none;
     background-color: $lighter-grey;
     @include cursor;
-    float: left;
+    float: right;
     padding: 1rem;
-    position: relative;
+    // position: absolute;
     text-decoration: none;
     transition-duration: 0.5s;
     display: block;
+    width: 10rem;
+    border-bottom: 1px solid rgb(101, 101, 101);
+    z-index: 1;
+    // right: 0;
 
     &:hover {
       background-color: $green;
       cursor: pointer;
     }
+    &:focus {
+      outline: none;  
+      background-color: $green;
+    }
   }
-}
-
-ul {
-  background: $lighter-grey;
-  // list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
-
-.reveal {
-  visibility: visible;
-  opacity: 1;
 }

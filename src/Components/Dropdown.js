@@ -22,7 +22,7 @@ class Dropdown extends Component {
 
   render() {
     return (
-      <div>
+      <div className='menu-container'>
         <button class="drop-down" id="dropDown" aria-label="Open drop down menu" onClick={event => this.showMenuHandler(event)}>
           <img className='filter-icon' src={filterIcon} alt="filter icon" />
           <img className='down-icon' src={dropdown} alt="drop down icon" />
