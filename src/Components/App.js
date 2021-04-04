@@ -30,7 +30,7 @@ class App extends Component {
       .catch(err => this.setState({
         error: 'Something went wrong. Please reload the page and try again.'
       }))
-    this.setState({ isLoading: false });
+    this.stateChange('isLoading', false);
   }
 
   prepMovieData(movieData) {
@@ -46,8 +46,8 @@ class App extends Component {
     return cleanData;
   }
 
-  stateChange = (newStateData) => {
-    this.setState({ singleMovieID: newStateData })
+  stateChange = (dataLocation, newStateData) => {
+    this.setState({ [dataLocation]: newStateData })
   }
 
   render() {
@@ -55,7 +55,12 @@ class App extends Component {
       <>
         {this.state.error && (<h2 className='error' > {this.state.error} </h2>)}
         <main className='App' >
-          <Header stateChange={this.stateChange} />
+          <Header
+            stateChange={this.stateChange}
+            movies={this.state.movieData}
+            filteredMovies={this.filteredMovies}
+            singleMovieID={this.state.singleMovieID}
+          />
           <Switch>
             <Route
               exact
@@ -63,9 +68,9 @@ class App extends Component {
               render={() =>
                 <MovieList
                   movies={this.state.movieData}
-                  calc={this.calculatePercent}
+                  filteredMovies={this.state.filteredMovies}
                   icon={tomatillo}
-                  stateChange={this.stateChange} />}
+                />}
             />
             <Route
               exact
