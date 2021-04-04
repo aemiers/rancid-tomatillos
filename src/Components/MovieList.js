@@ -46,7 +46,7 @@ const MovieList = ({ movies, filteredMovies, icon }) => {
   return (
     <section className='main-list'>
       <section className='main-list__header'>
-        <h1 className='main-list__title'>Browse Movies</h1>
+        <h1 className='main-list__title'>Browse Rated Movies</h1>
         {/* <Dropdown options={options} onChange={reveal} value={defaultOption} placeholder="Select an option" />; */}
 
         {/* <nav role="navigation" className='drop-down__container'> */}
