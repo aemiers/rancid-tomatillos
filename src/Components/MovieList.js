@@ -1,29 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
-// import filterIcon from '../assets/filter.svg';
 import '../Sass/MovieList.scss';
 import { formatRating } from '../utilities';
 import Dropdown from './Dropdown';
 
-const MovieList = ({ movies, filteredMovies, icon }) => {
-
-  // const MovieList = ({ movies, filteredMovies, icon }) => {
-
-  // const filterBtnSearch = event => {
-  //   event.preventDefault();
-  //   const resultMovies = this.props.movies.filter(movie => {
-  //     return movie.genre.includes(event.target.value)
-  //   })
-
-  //   this.props.updateFilteredMovies(resultMovies);
-  // }
-
-  // const reveal = (event) => {
-  //   console.log('hello')
-  // }
+const MovieList = ({ movies, filteredMovies, icon, stateChange }) => {
 
   const moviesToDisplay = filteredMovies.length ? filteredMovies : movies;
+  // Should this go here instead? Else it would have to be in dropdown and form
+  // if (!resultMovies.length) {
+  //   this.props.stateChange('error', 'No movies found')
+  //   this.props.stateChange('filteredMovies', []);
+  // } else {
+  //   this.props.stateChange('error', '')
+  //   this.props.stateChange('filteredMovies', resultMovies);
+  // }
+
   const movieCards = moviesToDisplay.map(movie => {
     return (
       <MovieCard
@@ -41,7 +34,10 @@ const MovieList = ({ movies, filteredMovies, icon }) => {
     <section className='main-list'>
       <section className='main-list__header'>
         <h1 className='main-list__title'>Browse Rated Movies</h1>
-        <Dropdown />
+        <Dropdown
+          stateChange={stateChange}
+          movies={movies}
+        />
       </section>
       <section className='movieGrid'>
         {movieCards}

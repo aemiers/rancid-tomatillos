@@ -4,11 +4,7 @@ import Header from './Header';
 import MovieDetails from './MovieDetails';
 import tomatillo from '../assets/tomatillo.svg';
 import MovieList from './MovieList';
-// import MovieCard from './MovieCard';
-// import Dropdown from './Dropdown';
-
-import { fetchAllMovies, fetchSingleMovie, fetchVideo } from '../Data/apiCalls';
-// import logo from '../assets/logo.svg';
+import { fetchAllMovies } from '../Data/apiCalls';
 import { Route, Switch } from 'react-router-dom';
 import { formatRating } from '../utilities';
 
@@ -79,6 +75,8 @@ class App extends Component {
                   movies={this.state.movieData}
                   filteredMovies={this.state.filteredMovies}
                   icon={tomatillo}
+                  stateChange={this.stateChange}
+
                 />}
             />
             <Route

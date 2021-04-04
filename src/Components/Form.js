@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import search from '../assets/search.svg';
 import cancel from '../assets/cancel.svg';
 import '../Sass/Form.scss';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class Form extends Component {
@@ -25,10 +25,6 @@ class Form extends Component {
     if (!resultMovies.length) {
       this.props.stateChange('error', 'No movies found')
       this.props.stateChange('filteredMovies', []);
-      // if (event.keyCode === 13) {
-      //   <Redirect to={'/'} />
-      //   console.log('yooooo')
-      // }
     } else {
       this.props.stateChange('error', '')
       this.props.stateChange('filteredMovies', resultMovies);
