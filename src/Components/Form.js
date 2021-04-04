@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import search from '../assets/search.svg';
 import cancel from '../assets/cancel.svg';
 import '../Sass/Form.scss';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 
 class Form extends Component {
@@ -23,6 +23,10 @@ class Form extends Component {
       return movie.title.toLowerCase().includes(formattedSearchWords)
     })
     this.props.stateChange('filteredMovies', resultMovies);
+    // if (event.keyCode === 13) {
+    //   <Redirect to={'/'} />
+    //   console.log('yooooo')
+    // }
   }
 
   clearInputs = event => {
@@ -47,7 +51,7 @@ class Form extends Component {
           />
           <button className='clear-button' onClick={event => this.clearInputs(event)}><img className='clear-icon' src={cancel} alt="clear button" /></button>
         </Link>
-      </form>
+      </form >
     )
   }
 }

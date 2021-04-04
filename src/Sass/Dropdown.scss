@@ -1,0 +1,114 @@
+@import '../Sass/index.scss';
+
+.filter-icon {
+  height: 3rem;
+  padding: 5px;
+  }
+
+.down-icon {
+  height: .5rem;
+  margin-bottom: 5px;
+}
+
+.drop-down__menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $dark-grey;
+  outline: none;
+  border: none;
+  @include transition;
+  margin-top: 10px;
+  height: 2rem;
+  z-index: 1;
+
+  &:hover {
+    @include cursor;
+    transform: scale(1.22);
+  }
+
+  &:focus {
+    transform: scale(1.22);
+  }
+
+  &__choice {
+    border: none;
+    background-color: $lighter-grey;
+    @include cursor;
+    float: left;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+    display: block;
+
+    &:hover {
+      background-color: $green;
+      cursor: pointer;
+    }
+  }
+}
+
+.drop-down {
+  display: flex;
+  align-items: center;
+  background-color: $dark-grey;
+  outline: none;
+  border: none;
+  @include transition;
+  margin-top: 10px;
+  height: 2rem;
+
+  &:hover {
+    @include cursor;
+    transform: scale(1.22);
+  }
+
+  &:focus {
+    transform: scale(1.22);
+  }
+
+  &__content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    // visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    right: 9rem;
+    // display: none;
+    z-index: 1;
+  }
+
+  &__choice {
+    border: none;
+    background-color: $lighter-grey;
+    @include cursor;
+    float: left;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+    display: block;
+
+    &:hover {
+      background-color: $green;
+      cursor: pointer;
+    }
+  }
+}
+
+ul {
+  background: $lighter-grey;
+  // list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.reveal {
+  visibility: visible;
+  opacity: 1;
+}
