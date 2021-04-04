@@ -20,9 +20,9 @@ class MovieDetails extends Component {
     Promise.all([fetchSingleMovie(this.props.id), fetchVideo(this.props.id)])
       .then((movieData) => {
         this.setState({ movieInfo: this.buildMovieObject(movieData)})
+        this.setState({ isLoading: false});
       })
-      .catch(err => this.setState({ error: `${err} Something went wrong. Please reload the page and try again.` }));
-      this.setState({ isLoading: false});
+      .catch(err => this.setState({ error: 'There was an error loading this movie.' }));
   }
 
   buildMovieObject(movieData) {
@@ -52,7 +52,7 @@ class MovieDetails extends Component {
           </div>
         </div>
       )}
-      {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
+      {this.state.error && ( <p data-cy = 'error' className = 'error' > {this.state.error} </p>)}
       <div className="flex-container">
         <section className="movie-details-section">
           <div className='backdrop-container'>

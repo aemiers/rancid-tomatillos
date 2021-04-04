@@ -24,10 +24,11 @@ class App extends Component {
 
   componentDidMount() {
     fetchAllMovies()
-      .then(movies => this.setState({
-        movieData: this.prepMovieData(movies.movies)}))
-      .catch(err => this.setState({ error: `${err} Something went wrong. Please reload the page and try again.` }))
-      this.stateChange('isLoading', false);
+      .then((movies) => {
+        this.setState({ movieData: this.prepMovieData(movies.movies) })
+        this.stateChange('isLoading', false);
+      })
+      .catch(err => this.setState({ error: 'There was a loading error. Please reload the page and try again.' }))
   }
 
   prepMovieData(movieData) {
@@ -64,7 +65,7 @@ class App extends Component {
               </div>
             </div>
           )}
-          {this.state.error && ( <h2 className = 'error' > {this.state.error} </h2>)}
+          {this.state.error && ( <p className = 'error' > {this.state.error} </p>)}
           <Switch>
           <Route
             exact
