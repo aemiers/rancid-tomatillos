@@ -133,3 +133,27 @@ a:hover, a:visited, a:link, a:active {
   text-decoration: none;
   color: #ffffff;
 }
+
+@media screen and (max-width: 768px) {
+  .card-info {
+    opacity: 1;
+    background: linear-gradient(to top, #22262b 0%, rgba(255, 0, 0, 0));
+  }
+  .card-info .hover-title {
+    font-size: 16px;
+  }
+
+  .rating-box {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 568px) {
+  .card-info .hover-title {
+    font-size: 19px;
+  }
+}
+@media screen and (max-width: 385px) {
+  .card-info .hover-title {
+    font-size: 16px;
+  }
+}
