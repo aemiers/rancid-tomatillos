@@ -54,3 +54,27 @@ p {
     transform: rotate(359deg);
   }
 }
+.main-list {
+  width: 86%;
+  margin: 0 auto;
+  height: 85vh;
+}
+.main-list__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.main-list__title {
+  font-size: 3rem;
+  margin: 20px 0 15px 0;
+}
+
+.movieGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 35px;
+  padding-bottom: 30px;
+  z-index: 0;
+}

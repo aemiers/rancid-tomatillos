@@ -1,0 +1,133 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.7;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.45rem;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.menu-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drop-down {
+  display: flex;
+  align-items: center;
+  background-color: #22262B;
+  outline: none;
+  border: none;
+  transform: scale(1.1);
+  transition: transform 300ms;
+  transition: all 0.2s ease-in-out;
+  margin-top: 10px;
+  height: 2rem;
+  position: absolute;
+  z-index: 2;
+}
+.drop-down:hover {
+  cursor: pointer;
+  transform: scale(1.22);
+}
+.drop-down:focus {
+  transform: scale(1.22);
+}
+.drop-down__choice {
+  border: none;
+  background-color: #3D434A;
+  color: #FFFFFF;
+  cursor: pointer;
+  float: right;
+  padding: 1rem;
+  text-decoration: none;
+  transition-duration: 0.5s;
+  display: block;
+  width: 10rem;
+  border-bottom: 1px solid #656565;
+  z-index: 1;
+}
+.drop-down__choice:hover {
+  background-color: #8EFF6F;
+  cursor: pointer;
+  color: #22262B;
+}
+.drop-down__choice:focus {
+  outline: none;
+  background-color: #8EFF6F;
+}
+
+.filter-icon {
+  height: 3rem;
+  padding: 5px;
+}
+
+.down-icon {
+  height: 0.5rem;
+  margin-bottom: 5px;
+  margin-right: 36px;
+}
+
+.drop-down__menu {
+  margin-right: 10rem;
+  background-color: #22262B;
+  outline: none;
+  border: none;
+  transform: scale(1.1);
+  transition: transform 300ms;
+  transition: all 0.2s ease-in-out;
+  margin-top: 10px;
+  height: 2rem;
+  z-index: 1;
+  position: absolute;
+  padding-top: 30px;
+}

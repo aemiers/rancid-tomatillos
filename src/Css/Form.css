@@ -1,4 +1,59 @@
-@import '../Sass/index.scss';
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.7;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.45rem;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
 form {
   position: relative;
 }
@@ -8,33 +63,33 @@ input {
   height: 4.5rem;
   border-radius: 22px;
   padding-left: 55px;
-  background-color: $lighter-grey;
-  @include whiteBorder;
+  background-color: #3D434A;
+  border: 2px solid white;
   font-size: 1.75rem;
-  color: $white;
-
-  &:focus {
-    @include focus;
-  }
+  color: #FFFFFF;
+}
+input:focus {
+  box-shadow: 0 0 5px 0 white;
+  outline: none;
 }
 
 .clear-button {
-  @include cursor;
+  cursor: pointer;
   position: absolute;
   top: 10px;
   right: 20px;
-  color: $white;
-  background-color: $lighter-grey;
+  color: #FFFFFF;
+  background-color: #3D434A;
   border: none;
   font-size: 2rem;
-
-  &:hover {
-    @include transition;
-  }
-
-  &:focus {
-    outline: none;
-  }
+}
+.clear-button:hover {
+  transform: scale(1.1);
+  transition: transform 300ms;
+  transition: all 0.2s ease-in-out;
+}
+.clear-button:focus {
+  outline: none;
 }
 
 .search-icon {
@@ -45,7 +100,7 @@ input {
   padding: 5px;
   background-color: #8EFF6F;
   border-radius: 20px;
-  @include whiteBorder;
+  border: 2px solid white;
 }
 
 .clear-icon {
@@ -63,20 +118,17 @@ input {
     width: 35rem;
   }
 }
-
 @media screen and (max-width: 573px) {
   input {
     width: 25rem;
   }
 }
-
 @media screen and (max-width: 457px) {
   input {
     width: 20rem;
     font-size: 1.5rem;
   }
 }
-
 @media screen and (max-width: 385px) {
   input {
     width: 18rem;
@@ -93,7 +145,7 @@ input {
     padding: 5px;
     background-color: #8EFF6F;
     border-radius: 20px;
-    @include whiteBorder;
+    border: 2px solid white;
   }
 
   .clear-icon {
@@ -104,5 +156,4 @@ input {
   .logo-container {
     margin-top: 5px;
   }
-
 }
