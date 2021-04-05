@@ -9,6 +9,7 @@
 
 html {
   font-size: 62.5%;
+  background-color: #22262B;
 }
 
 body {
@@ -65,7 +66,7 @@ p {
   margin: 0 auto;
   margin-right: 0;
   background-color: #22262B;
-  height: 60vh;
+  height: 65vh;
 }
 
 .backdrop-container {
@@ -87,7 +88,7 @@ p {
 .overlay {
   position: relative;
   z-index: 2;
-  height: 63vh;
+  height: 67vh;
   width: 100%;
   background: -moz-linear-gradient(left, #22262b 36%, rgba(125, 185, 232, 0) 100%);
   background: -webkit-linear-gradient(left, #22262b 36%, rgba(125, 185, 232, 0) 100%);
@@ -200,11 +201,11 @@ p {
   }
 
   .movie-details-section {
-    height: 40vh;
+    height: 48vh;
   }
 
   .overlay {
-    height: 41vh;
+    height: 50vh;
   }
 
   .movie-words-container {
@@ -220,11 +221,11 @@ p {
   }
 
   .movie-details-section {
-    height: 38.5vh;
+    height: 40vh;
   }
 
   .overlay {
-    height: 38.5vh;
+    height: 44.5vh;
   }
 
   .movie-words-container {
@@ -301,7 +302,7 @@ p {
 }
 @media screen and (max-width: 315px) {
   .backdrop {
-    min-width: 250px;
+    min-width: 0px;
   }
 
   .overview {
