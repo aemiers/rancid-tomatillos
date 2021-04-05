@@ -28,7 +28,12 @@ class Dropdown extends Component {
         return movie
       }
     })
-    this.props.stateChange('filteredMovies', resultMovies);
+    if (!resultMovies.length) {
+      console.log(resultMovies);
+      this.props.stateChange('error', 'No movies found')
+    } else {
+      this.props.stateChange('filteredMovies', resultMovies);
+    }
     this.setState({ showMenu: false })
   }
 
@@ -59,4 +64,3 @@ class Dropdown extends Component {
 }
 
 export default Dropdown;
-
