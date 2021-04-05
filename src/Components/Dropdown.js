@@ -13,28 +13,34 @@ class Dropdown extends Component {
 
   showMenuHandler = event => {
     event.preventDefault();
-    this.state.showMenu === false ? this.setState({ showMenu: true }) : this.setState({ showMenu: false })
+    this.state.showMenu === false ? this.setState({ showMenu: true }) : this.setState({ showMenu: false });
   }
 
   dropdownFilterSearch = event => {
     event.preventDefault();
     this.props.stateChange('filteredMovies', []);
     const resultMovies = this.props.movies.filter(movie => {
-      const clickedId = parseInt(event.target.id)
-      const parsedRating = parseInt(movie.rating)
+      const clickedId = parseInt(event.target.id);
+      const parsedRating = parseInt(movie.rating);
       if (clickedId === 0 && parsedRating <= 29) {
-        return movie
+        return movie;
       } else if (parsedRating >= clickedId && parsedRating <= (clickedId + 9)) {
-        return movie
+        return movie;
+      } else if (clickedId === 1) {
+        return this.props.movies
       }
     })
+    this.errorHandling(resultMovies);
+    this.setState({ showMenu: false });
+  }
+
+  errorHandling = (resultMovies) => {
     if (!resultMovies.length) {
-      console.log(resultMovies);
-      this.props.stateChange('error', 'No movies found')
+      this.props.stateChange('error', 'No movies found');
     } else {
+      this.props.stateChange('error', '');
       this.props.stateChange('filteredMovies', resultMovies);
     }
-    this.setState({ showMenu: false })
   }
 
   render() {
@@ -55,6 +61,8 @@ class Dropdown extends Component {
               <button id="70" className="drop-down__choice"> 70 - 79% </button>
               <button id="80" className="drop-down__choice"> 80 - 89% </button>
               <button id="90" className="drop-down__choice"> 90 - 100% </button>
+              <button id="1" className="drop-down__choice"> Clear Filter </button>
+
             </div>)
           : (null)
         }
