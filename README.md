@@ -1,8 +1,8 @@
 # Rancid Tomatillos
 <p align="center">
-<img src="./src/assets/logo-black.svg" alt="Rancid Tomatillos Logo" width="300">
+<img src="./assets/logo-black.svg" alt="Rancid Tomatillos Logo" width="300">
 </p>  
-  
+
 ## Table of Contents
 
 - [About the Project](#about-the-project)
@@ -40,7 +40,7 @@ https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html
 ![](src/assets/movie-details-top.png)
 ![](src/assets/movie-details-bottom.png)
 
-## Project Goals 
+## Project Goals
 1. Gain competency with React.
 2. Create mutipage using Router.
 3. Make network requests to API endpoints to retrieve and manipulate data.
@@ -51,7 +51,7 @@ https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html
 8. Make the app responsive so that content can be viewed on all devices.
 
 ## Installation
-View the code -> 
+View the code ->
 https://github.com/aemiers/rancid-tomatillos
 
 ## Technologies Used
@@ -71,26 +71,26 @@ https://github.com/aemiers/rancid-tomatillos
 - ![Cypress](https://img.shields.io/badge/cypress%20-%2317202C.svg?&style=for-the-badge&logo=cypress&logoColor=white)
 
 ## Wireframes
-Sketch was utilized to create wireframes, low fidelity, and high fidelity prototypes. We tested all user stories with our wireframes/prototypes to ensure that our designs catered to the needs of our users. Our final product and the wireframes only have one major difference, and that is the added filter functionality. 
+Sketch was utilized to create wireframes, low fidelity, and high fidelity prototypes. We tested all user stories with our wireframes/prototypes to ensure that our designs catered to the needs of our users. Our final product and the wireframes only have one major difference, and that is the added filter functionality.
 
 ![](src/assets/HiFi-Mockup-Rancid-Tomatillos.png)
 
 ## Functionality
 
 #### General
-Rancid Tomatillos is a versatile web application that enables its users to browse, search, filter, and view rated movies. Once the user selects a video, an expanded details page opens revealing further information such as run time, genre, and the summary. A trailer clip is also available for the user to view. 
+Rancid Tomatillos is a versatile web application that enables its users to browse, search, filter, and view rated movies. Once the user selects a video, an expanded details page opens revealing further information such as run time, genre, and the summary. A trailer clip is also available for the user to view.
 <img src="https://media.giphy.com/media/zaqDVfwNCUgYO7SVJi/giphy.gif" width="80%">
 
 #### Search
-If the user has a movie that they are just itching to see the ratings on, they can search for the title using the search bar. The search bar uses state to keep up to date, and therefore can filter movies with every letter the user types. The user can use backspace, which will re-render a new list based on the search criteria, or the user can click the X button to clear the search field. 
+If the user has a movie that they are just itching to see the ratings on, they can search for the title using the search bar. The search bar uses state to keep up to date, and therefore can filter movies with every letter the user types. The user can use backspace, which will re-render a new list based on the search criteria, or the user can click the X button to clear the search field.
 <img src="https://media.giphy.com/media/zBPBp7hosLTyeSUkY1/giphy.gif" width="80%">
 
 #### Filter
-The user is also able to filter movies by rating. Once selected, the filter will offer the user a list of ratings that they can choose from. Once selected, the movie list will re-render based on the filter criteria. The user can also clear the filter results from the filter menu. 
+The user is also able to filter movies by rating. Once selected, the filter will offer the user a list of ratings that they can choose from. Once selected, the movie list will re-render based on the filter criteria. The user can also clear the filter results from the filter menu.
 <img src="https://media.giphy.com/media/hivhidBeXmvZt2sdue/giphy.gif" width="80%">
 
 #### Error Handling
-Error handling was considered when building the website. A loading screen will appear when any content is not appearing and is still rendering. If a filter or search is applied that generates no corresponding movies, a message will appear to the user telling them to try another search. The user will also be alerted if something goes wrong on the server side. 
+Error handling was considered when building the website. A loading screen will appear when any content is not appearing and is still rendering. If a filter or search is applied that generates no corresponding movies, a message will appear to the user telling them to try another search. The user will also be alerted if something goes wrong on the server side.
 
 #### Responsiveness
 ##### Mobile View
@@ -100,7 +100,7 @@ Error handling was considered when building the website. A loading screen will a
 <img src="https://media.giphy.com/media/h1ZS7hNQIaalezqok8/giphy.gif" width="80%">
 
 #### Accessibility
-Rancid Tomatillos received a 100% from Lighthouse on Accessibility. Users can tab throughout the full application, making it accessible for those using keyboards to navigate through. 
+Rancid Tomatillos received a 100% from Lighthouse on Accessibility. Users can tab throughout the full application, making it accessible for those using keyboards to navigate through.
 
 ![](src/assets/LightHouseRating.png)
 

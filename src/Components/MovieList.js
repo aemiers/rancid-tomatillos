@@ -7,10 +7,14 @@ import Dropdown from './Dropdown';
 
 const MovieList = ({ movies, filteredMovies, icon, stateChange, error }) => {
 
+
+
   let moviesToDisplay = filteredMovies.length ? filteredMovies : movies;
   if (!filteredMovies.length && error) {
     moviesToDisplay = [];
   }
+
+
 
   const movieCards = moviesToDisplay.map(movie => {
     return (
@@ -47,4 +51,6 @@ MovieList.propTypes = {
   movie: PropTypes.object,
   filteredMovies: PropTypes.array,
   icon: PropTypes.string,
+  stateChange: PropTypes.func,
+  error: PropTypes.string
 };
