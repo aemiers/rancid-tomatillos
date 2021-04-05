@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import '../Sass/MovieDetails.scss';
 import { fetchSingleMovie, fetchVideo } from '../Data/apiCalls';
 import { formatYear, formatRunTime, calculatePercent, formatGenre, formatVideo, formatRating } from '../utilities';

@@ -1,0 +1,160 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: #22262B;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.7;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.45rem;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.movie-card {
+  width: 100%;
+  top: 0;
+  right: 0;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(1, 1fr);
+  transition: all 0.2s ease-in-out;
+  z-index: 0;
+}
+.movie-card:hover {
+  transform: scale(1.1);
+  transition: transform 300ms;
+  transition: all 0.2s ease-in-out;
+  border: solid 3px #8EFF6F;
+}
+.movie-card:hover .poster {
+  transform: scale(1.02);
+}
+.movie-card:hover .card-info {
+  cursor: pointer;
+  opacity: 1;
+  background: linear-gradient(to top, #22262b 0%, rgba(255, 0, 0, 0));
+}
+.movie-card:focus {
+  border: solid 3px #8EFF6F;
+}
+.movie-card:focus .poster {
+  transform: scale(1.02);
+}
+.movie-card:focus .card-info {
+  opacity: 1;
+  background: linear-gradient(to top, #22262b 0%, rgba(255, 0, 0, 0));
+}
+.movie-card img {
+  width: 100%;
+  grid-area: bottom;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column-reverse;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  padding: 8px;
+  grid-area: bottom;
+}
+.card-info .hover-title {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 15px;
+  margin-bottom: -6;
+}
+
+.rating-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-top: -10px;
+}
+.rating-box img {
+  width: 28px;
+  height: 28px;
+}
+.rating-box p {
+  font-weight: 300;
+  margin: 6px 0 0 3px;
+}
+
+a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .card-info {
+    opacity: 1;
+    background: linear-gradient(to top, #22262b 0%, rgba(255, 0, 0, 0));
+  }
+  .card-info .hover-title {
+    font-size: 16px;
+  }
+
+  .rating-box {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 568px) {
+  .card-info .hover-title {
+    font-size: 19px;
+  }
+}
+@media screen and (max-width: 385px) {
+  .card-info .hover-title {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,108 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: #22262B;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.7;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.45rem;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.main-list {
+  width: 86%;
+  margin: 0 auto;
+  height: 85vh;
+}
+.main-list__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.main-list__title {
+  font-size: 3rem;
+  margin: 20px 0 15px 0;
+}
+
+.movieGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 35px;
+  padding-bottom: 30px;
+  z-index: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .movieGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 568px) {
+  .movieGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main-list {
+    width: 86%;
+    margin: 0 auto;
+    height: 85vh;
+  }
+  .main-list__title {
+    font-size: 2.2rem;
+    margin: 20px 0 15px 0;
+  }
+}
+@media screen and (max-width: 395px) {
+  .movieGrid {
+    grid-column-gap: 18px;
+    grid-row-gap: 18px;
+  }
+}
