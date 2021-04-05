@@ -27,3 +27,31 @@
   z-index: 0;
 }
 
+@media screen and (max-width: 768px) {
+  .movieGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .movieGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main-list {
+    @include pageMargins;
+    height: 85vh;
+
+    &__title {
+       font-size: 2.20rem;
+       margin: 20px 0 15px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 395px) {
+  .movieGrid {
+    grid-column-gap: 18px;
+    grid-row-gap: 18px;
+  }
+}
