@@ -5,9 +5,14 @@ import '../Sass/MovieList.scss';
 import { formatRating } from '../utilities';
 import Dropdown from './Dropdown';
 
-const MovieList = ({ movies, filteredMovies, icon, stateChange }) => {
+const MovieList = ({ movies, filteredMovies, icon, stateChange, error }) => {
 
-  const moviesToDisplay = filteredMovies.length ? filteredMovies : movies;
+  let moviesToDisplay = filteredMovies.length ? filteredMovies : movies;
+  if (!filteredMovies.length && error) {
+    moviesToDisplay = [];
+  }
+
+
   // Should this go here instead? Else it would have to be in dropdown and form
   // if (!resultMovies.length) {
   //   this.props.stateChange('error', 'No movies found')

@@ -76,7 +76,7 @@ class App extends Component {
                   filteredMovies={this.state.filteredMovies}
                   icon={tomatillo}
                   stateChange={this.stateChange}
-
+                  error={this.state.error}
                 />}
             />
             <Route
