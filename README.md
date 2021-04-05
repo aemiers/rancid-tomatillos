@@ -1,4 +1,4 @@
-# Overlook Hotel Booker
+# Rancid Tomatillos
 <p align="center">
 <img src="./src/assets/logo-black.svg" alt="Rancid Tomatillos Logo" width="300">
 </p>  
@@ -25,7 +25,7 @@
 
 ## About the Project
 
-In this project,my job was to take information from an API and create a functional website using that data. The data is for a hotel and contained booking, room, and customer information. 
+In this project, our team was tasked with creating a movie website where users can view a list of movies with titles and rating information. A user can click on a movie to see a page with further details, including a trailer. All of the data was provide by an API and the site is accessible and responsive on desktop, tablet and mobile views. 
 
 Project spec ->
 https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html
