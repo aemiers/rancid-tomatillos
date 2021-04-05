@@ -55,14 +55,25 @@ describe('Rancid Tomatillos Home Page', () => {
       })
   });
 
-  // it('Should be able to filter movies based on rating', () => {
+  it('Should be able to filter movies based on rating', () => {
+    cy
+      .get('.filter-icon').click()
+      .get('.drop-down__choice').eq(4).click()
+      .get('.movie-card')
+      .should(($movieCard) => {
+        expect($movieCard).to.have.length(1)
+        expect($movieCard).to.contain('Money')
+      })
+  });
+
+  // it('Should display the empty state message if no movies are in that filter category', () => {
   //   cy
   //     .get('.filter-icon').click()
-  //     .get('.drop-down__choice').eq(5).click()
+  //     .get('.drop-down__choice').eq(0).click()
   //     .get('.movie-card')
   //     .should(($movieCard) => {
-  //       expect($movieCard).to.have.length(1)
-  //       // expect($movieCard).to.include('Rogue')
+  //       expect($movieCard).to.have.length(0)
+  //       expect($movieCard).to.contain('Insert proper error message here')
   //     })
   // });
 
