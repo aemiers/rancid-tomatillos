@@ -12,16 +12,6 @@ const MovieList = ({ movies, filteredMovies, icon, stateChange, error }) => {
     moviesToDisplay = [];
   }
 
-
-  // Should this go here instead? Else it would have to be in dropdown and form
-  // if (!resultMovies.length) {
-  //   this.props.stateChange('error', 'No movies found')
-  //   this.props.stateChange('filteredMovies', []);
-  // } else {
-  //   this.props.stateChange('error', '')
-  //   this.props.stateChange('filteredMovies', resultMovies);
-  // }
-
   const movieCards = moviesToDisplay.map(movie => {
     return (
       <MovieCard
