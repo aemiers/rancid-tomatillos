@@ -37,8 +37,8 @@ https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html
 ![](src/assets/rancid-bottom.png)
 
 ##### Details Page:
-![](src/assets/rancid-top.png)
-![](src/assets/rancid-bottom.png)
+![](src/assets/movie-details-top.png)
+![](src/assets/movie-details-bottom.png)
 
 ## Project Goals 
 1. Gain competency with React.
