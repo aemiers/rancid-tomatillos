@@ -25,7 +25,7 @@
 
 ## About the Project
 
-In this project, our team was tasked with creating a movie website where users can view a list of movies with titles and rating information. A user can click on a movie to see a page with further details, including a trailer. All of the data was provide by an API and the site is accessible and responsive on desktop, tablet and mobile views.
+In this project, our team was tasked with creating a movie website where users can view a list of movies with titles and rating information. A user can click on a movie to see a page with further details, including a trailer. All of the data was provide by an API and the site is accessible and responsive on desktop, tablet and mobile views. 
 
 Project spec ->
 https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html
@@ -37,8 +37,8 @@ https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html
 ![](src/assets/rancid-bottom.png)
 
 ##### Details Page:
-![](src/assets/rancid-top.png)
-![](src/assets/rancid-bottom.png)
+![](src/assets/movie-details-top.png)
+![](src/assets/movie-details-bottom.png)
 
 ## Project Goals
 1. Gain competency with React.
