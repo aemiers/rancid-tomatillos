@@ -29,5 +29,7 @@ const Header = ({ movies, stateChange, singleMovieID }) => {
 export default Header;
 
 Header.propTypes = {
-  click: PropTypes.func
+  movies: PropTypes.array,
+  stateChange: PropTypes.func,
+  singleMovieID: PropTypes.string
 };
