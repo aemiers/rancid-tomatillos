@@ -89,3 +89,154 @@
 .load-container {
   @include load-container;
 }
+
+@media screen and (max-width: 1180px) {
+  .movie-details-section {
+    height: 50vh;
+  }
+
+  .overlay {
+    height: 50vh;
+  }
+
+  .movie-words-container {
+    left: 8rem;
+    width: 58%;
+
+    .movie-words__title {
+      font-size: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 1069px) {
+  .backdrop {
+    min-width: 600px;
+  }
+
+  .movie-details-section {
+    height: 40vh;
+  }
+
+  .overlay {
+    height: 41vh;
+  }
+
+  .movie-words-container {
+    left: 7rem;
+
+    .movie-words__title {
+      font-size: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .backdrop {
+    min-width: 550px;
+  }
+
+  .movie-details-section {
+    height: 38.5vh;
+  }
+
+  .overlay {
+    height: 38.5vh;
+  }
+
+  .movie-words-container {
+    left: 6.75rem;
+    width: 72%;
+
+    .movie-words__details {
+      font-size: 20px;
+    }
+
+    .overview {
+      font-size: 13.5px;
+    }
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .backdrop {
+    min-width: 465px;
+  }
+}
+
+@media screen and (max-width: 541px) {
+  .backdrop {
+    min-width: 335px;
+  }
+
+  .movie-details-section {
+    height: 35vh;
+  }
+
+  .overlay {
+    height: 35vh;
+  }
+
+  .movie-words-container {
+    left: 5rem;
+    width: 75%;
+
+    .movie-words__details {
+      font-size: 18px;
+    }
+
+    .movie-words__title {
+      font-size: 30px;
+    }
+
+    .overview {
+      font-size: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: 388px) {
+  .backdrop {
+    min-width: 300px;
+  }
+
+  .movie-words-container {
+    left: 4.5rem;
+    width: 78%;
+
+    .movie-words__details {
+      font-size: 14px;
+    }
+
+    .movie-words__title {
+      font-size: 28px;
+    }
+  }
+}
+
+@media screen and (max-width: 355px) {
+  .backdrop {
+    min-width: 270px;
+  }
+
+  .movie-words-container {
+    left: 4.5rem;
+    width: 75%;
+
+    .movie-words__title {
+      font-size: 20px;
+    }
+
+  }
+}
+
+@media screen and (max-width: 315px) {
+  .backdrop {
+    min-width: 250px;
+  }
+
+    .overview {
+      font-size: 11px;
+
+  }
+}
