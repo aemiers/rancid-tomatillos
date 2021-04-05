@@ -56,11 +56,12 @@
   padding: 8px;
   grid-area: bottom;
 
-  h3 {
+  .hover-title {
     font-size: 24px;
     font-weight: 400;
     text-align: left;
     margin-left: 15px;
+    margin-bottom: -6;
   }
 }
 
@@ -74,10 +75,6 @@
   img {
     width: 28px;
     height: 28px;
-  }
-
-  .hover-title {
-    margin-bottom: -6;
   }
 
   p {
