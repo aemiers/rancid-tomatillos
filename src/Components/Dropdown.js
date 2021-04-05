@@ -22,9 +22,9 @@ class Dropdown extends Component {
     const resultMovies = this.props.movies.filter(movie => {
       const clickedId = parseInt(event.target.id)
       const parsedRating = parseInt(movie.rating)
-      if (clickedId === 0 && parsedRating <= 30) {
+      if (clickedId === 0 && parsedRating <= 29) {
         return movie
-      } else if (parsedRating >= (clickedId * 10) && parsedRating <= ((clickedId * 10) + .99)) {
+      } else if (parsedRating >= clickedId && parsedRating <= (clickedId + .99)) {
         return movie
       }
     })
@@ -42,14 +42,14 @@ class Dropdown extends Component {
         {this.state.showMenu
           ? (
             <div className="drop-down__menu" onClick={event => this.dropdownFilterSearch(event)}>
-              <button id="0" className="drop-down__choice"> 0-29% </button>
-              <button id="3" className="drop-down__choice"> 30-39% </button>
-              <button id="4" className="drop-down__choice"> 40-49% </button>
-              <button id="5" className="drop-down__choice"> 50-59% </button>
-              <button id="6" className="drop-down__choice"> 60-69% </button>
-              <button id="7" className="drop-down__choice"> 70-79% </button>
-              <button id="8" className="drop-down__choice"> 80-89% </button>
-              <button id="9" className="drop-down__choice"> 90-100% </button>
+              <button id="0" className="drop-down__choice"> 0 - 29% </button>
+              <button id="30" className="drop-down__choice"> 30 - 39% </button>
+              <button id="40" className="drop-down__choice"> 40 - 49% </button>
+              <button id="50" className="drop-down__choice"> 50 - 59% </button>
+              <button id="60" className="drop-down__choice"> 60 - 69% </button>
+              <button id="70" className="drop-down__choice"> 70 - 79% </button>
+              <button id="80" className="drop-down__choice"> 80 - 89% </button>
+              <button id="90" className="drop-down__choice"> 90 - 100% </button>
             </div>)
           : (null)
         }

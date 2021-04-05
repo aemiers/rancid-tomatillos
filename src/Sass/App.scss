@@ -6,14 +6,14 @@
   overflow-x: hidden;
 }
 
-.bottom-logo {
-  @include pageMargins;
-  margin: 25px 0 0 50px;
+// .bottom-logo {
+//   @include pageMargins;
+//   margin: 25px 0 0 50px;
 
-  img {
-    width: 174px;
-  }
-}
+//   img {
+//     width: 174px;
+//   }
+// }
 
 .error {
   @include error;

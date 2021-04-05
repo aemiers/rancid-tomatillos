@@ -27,6 +27,14 @@ input {
   background-color: $lighter-grey;
   border: none;
   font-size: 2rem;
+
+  &:hover {
+    @include transition;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .search-icon {

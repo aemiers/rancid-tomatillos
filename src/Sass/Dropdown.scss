@@ -1,35 +1,10 @@
 @import '../Sass/index.scss';
 
-.filter-icon {
-  height: 3rem;
-  padding: 5px;
-  }
-
-.down-icon {
-  height: .5rem;
-  margin-bottom: 5px;
-}
-
 .menu-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.drop-down__menu {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  background-color: $dark-grey;
-  outline: none;
-  border: none;
-  @include transition;
-  margin-top: 10px;
-  height: 2rem;
-  z-index: 1;
-  position: absolute;
-  padding-top: 30px;
 }
 
 .drop-down {
@@ -42,10 +17,7 @@
   margin-top: 10px;
   height: 2rem;
   position: absolute;
-  // top: 8rem;
-  // right: 10rem;
   z-index: 2;
-
 
   &:hover {
     @include cursor;
@@ -59,25 +31,50 @@
   &__choice {
     border: none;
     background-color: $lighter-grey;
+    color: $white;
     @include cursor;
     float: right;
     padding: 1rem;
-    // position: absolute;
     text-decoration: none;
     transition-duration: 0.5s;
     display: block;
     width: 10rem;
     border-bottom: 1px solid rgb(101, 101, 101);
     z-index: 1;
-    // right: 0;
 
     &:hover {
       background-color: $green;
       cursor: pointer;
+      color: $dark-grey;
     }
+
     &:focus {
       outline: none;  
       background-color: $green;
     }
   }
+}
+
+.filter-icon {
+  height: 3rem;
+  padding: 5px;
+}
+
+.down-icon {
+  height: .5rem;
+  margin-bottom: 5px;
+  margin-right: 36px;
+}
+
+.drop-down__menu {
+  margin-right: 10rem;
+  background-color: $dark-grey;
+  outline: none;
+  border: none;
+  @include transition;
+  margin-top: 10px;
+  height: 2rem;
+  z-index: 1;
+  position: absolute;
+  padding-top: 30px;
 }

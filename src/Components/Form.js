@@ -23,10 +23,10 @@ class Form extends Component {
       return (movie.title.toLowerCase().includes(formattedSearchWords))
     })
     if (!resultMovies.length) {
-      this.props.stateChange('error', 'No movies found')
+      this.props.stateChange('error', 'No movies found');
       this.props.stateChange('filteredMovies', []);
     } else {
-      this.props.stateChange('error', '')
+      this.props.stateChange('error', '');
       this.props.stateChange('filteredMovies', resultMovies);
     }
   }
