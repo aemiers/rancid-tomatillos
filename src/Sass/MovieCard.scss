@@ -10,6 +10,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: repeat(1, 1fr);
   transition: all 0.2s ease-in-out;
+  z-index: 0;
 
   &:hover  {
     @include transition;
@@ -55,11 +56,12 @@
   padding: 8px;
   grid-area: bottom;
 
-  h3 {
+  .hover-title {
     font-size: 24px;
     font-weight: 400;
     text-align: left;
     margin-left: 15px;
+    margin-bottom: -6;
   }
 }
 
@@ -75,9 +77,9 @@
     height: 28px;
   }
 
-  h4 {
+  p {
     font-weight: 300;
-    margin: 6px 0 0 5px;
+    margin: 6px 0 0 3px;
   }
 }
 

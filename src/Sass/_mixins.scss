@@ -13,6 +13,23 @@
   transition: all 0.2s ease-in-out;
 }
 
+@mixin whiteBorder {
+  border: 2px solid white;
+}
+
+@mixin focus {
+  box-shadow: 0 0 5px 0 white;
+  outline: none;
+}
+
+@mixin filterBtnOn {
+  color: $lighter-grey;
+  background-color: $green;
+  border: none;
+  outline: none;
+  font-weight: 550;
+}
+    
 @mixin error {
   margin: 10px auto;
   text-align: center;

@@ -3,10 +3,20 @@ import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 import '../Sass/MovieList.scss';
 import { formatRating } from '../utilities';
+import Dropdown from './Dropdown';
 
-const MovieList = ({ movies, filteredMovies, icon }) => {
+const MovieList = ({ movies, filteredMovies, icon, stateChange }) => {
 
   const moviesToDisplay = filteredMovies.length ? filteredMovies : movies;
+  // Should this go here instead? Else it would have to be in dropdown and form
+  // if (!resultMovies.length) {
+  //   this.props.stateChange('error', 'No movies found')
+  //   this.props.stateChange('filteredMovies', []);
+  // } else {
+  //   this.props.stateChange('error', '')
+  //   this.props.stateChange('filteredMovies', resultMovies);
+  // }
+
   const movieCards = moviesToDisplay.map(movie => {
     return (
       <MovieCard
@@ -21,8 +31,14 @@ const MovieList = ({ movies, filteredMovies, icon }) => {
   })
 
   return (
-    <section className='mainList'>
-      <h1>Movies</h1>
+    <section className='main-list'>
+      <section className='main-list__header'>
+        <h1 className='main-list__title'>Browse Rated Movies</h1>
+        <Dropdown
+          stateChange={stateChange}
+          movies={movies}
+        />
+      </section>
       <section className='movieGrid'>
         {movieCards}
       </section>

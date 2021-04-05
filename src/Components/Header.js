@@ -5,7 +5,7 @@ import logo from '../assets/logo.svg';
 import '../Sass/Header.scss'
 import { Link } from 'react-router-dom';
 
-const Header = ({ movies, stateChange }) => {
+const Header = ({ movies, stateChange, singleMovieID }) => {
   return (
     <>
       <header>
@@ -17,6 +17,7 @@ const Header = ({ movies, stateChange }) => {
             <Form
               stateChange={stateChange}
               movies={movies}
+              singleMovieID={singleMovieID}
             />
           </div>
         </section>

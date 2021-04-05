@@ -37,12 +37,53 @@ describe('Rancid Tomatillos Home Page', () => {
       })
   });
 
+  it('Should be able to view the drop down menu to filter movies', () => {
+    cy
+      .get('.filter-icon').click()
+      .get('.drop-down__menu').should('be.visible')
+      .get('.drop-down__choice').should('be.visible')
+      .should(($dropChoice) => {
+        expect($dropChoice).to.have.length(8)
+        expect($dropChoice, 'second').to.contain('30 - 39%')
+        expect($dropChoice, 'third').to.contain('40 - 49%')
+        expect($dropChoice, 'fourth').to.contain('50 - 59%')
+        expect($dropChoice, 'fifth').to.contain('60 - 69%')
+        expect($dropChoice, 'sixth').to.contain('70 - 79%')
+        expect($dropChoice, 'seventh').to.contain('80 - 89%')
+        expect($dropChoice, 'eighth').to.contain('90 - 100%')
+        expect($dropChoice, 'first').to.contain('0 - 29%')
+      })
+  });
+
+  it('Should be able to filter movies based on rating', () => {
+    cy
+      .get('.filter-icon').click()
+      .get('.drop-down__choice').eq(4).click()
+      .get('.movie-card')
+      .should(($movieCard) => {
+        expect($movieCard).to.have.length(1)
+        expect($movieCard).to.contain('Money')
+      })
+  });
+
+  // it('Should display the empty state message if no movies are in that filter category', () => {
+  //   cy
+  //     .get('.filter-icon').click()
+  //     .get('.drop-down__choice').eq(0).click()
+  //     .get('.movie-card')
+  //     .should(($movieCard) => {
+  //       expect($movieCard).to.have.length(0)
+  //       expect($movieCard).to.contain('Insert proper error message here')
+  //     })
+  // });
+
   // it('Should display a message if no movies match search criteria', () => {
   //   cy
-  //     .get('input').type('ava')
-  //     .get('.movieGrid')
-  //     .should(($movieGrid) => {
-  //       expect($movieGrid).to.contain('Insert proper error message here')
+  //     .get('input').type('avaa')
+  //     .get('.movie-card')
+  //     .should(($movieCard) => {
+  //       expect($movieCard).to.have.length(0)
+  //       expect($movieCard).to.contain('Insert proper error message here')
   //     })
   // });
 
@@ -78,76 +119,35 @@ describe('Movie Details Page', () => {
     cy.get('.logo').click();
     cy.url().should('include', 'http://localhost:3000')
   })
+
+  it('should go back or forward in the browser\'s history', () => {
+    cy
+      .url('/694919').should('include', '694919')
+      .go('back')
+      .url('/').should('not.include', '694919')
+      .go('forward')
+      .url('/694919').should('include', '694919')
+      .go(-1)
+      .url('/').should('not.include', '694919')
+      .go(1)
+      .url('/694919').should('include', '694919')
+  })
 })
 
 describe('Error testing', () => {
   it('Should show an error message when the list of movies does not load', () => {
-    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', [])
-    cy.visit('http://localhost:3000')
-    .get('p').contains('There was a loading error. Please reload the page and try again.')
+    cy
+      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', [])
+      .visit('http://localhost:3000')
+      .get('p').contains('There was a loading error. Please reload the page and try again.')
   })
 
   it('Should show an error message when a movie detail page does not load', () => {
-    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', [])
-    cy.visit('http://localhost:3000/694919')
-    .get('[data-cy=error]').contains('There was an error loading this movie.')
+    cy
+      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', [])
+      .visit('http://localhost:3000/694919')
+      .get('[data-cy=error]').contains('There was an error loading this movie.')
   })
 
 })
 
-// testing error message
-
-// it('should go back or forward in the browser\'s history', () => {
-//   // https://on.cypress.io/go
-
-//   cy.location('pathname').should('include', 'navigation')
-
-//   cy.go('back')
-//   cy.location('pathname').should('not.include', 'navigation')
-
-//   cy.go('forward')
-//   cy.location('pathname').should('include', 'navigation')
-
-//   // clicking back
-//   cy.go(-1)
-//   cy.location('pathname').should('not.include', 'navigation')
-
-//   // clicking forward
-//   cy.go(1)
-//   cy.location('pathname').should('include', 'navigation')
-// })
-
-// it('cy.visit() - visit a remote url', () => {
-//   // https://on.cypress.io/visit
-
-//   // Visit any sub-domain of your current domain
-
-//   // Pass options to the visit
-//   cy.visit('https://example.cypress.io/commands/navigation', {
-//     timeout: 50000, // increase total time for the visit to resolve
-//     onBeforeLoad(contentWindow) {
-//       // contentWindow is the remote page's window object
-//       expect(typeof contentWindow === 'object').to.be.true
-//     },
-//     onLoad(contentWindow) {
-//       // contentWindow is the remote page's window object
-//       expect(typeof contentWindow === 'object').to.be.true
-//     },
-//   })
-// })
-
-// it('Should display an error message if the movies cannot be loaded', () => {
-  //   // cy.fixture('movie_data.json').then((movies) => {
-  //   cy.intercept(
-  //     'GET',
-  //     'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
-  //     {
-  //       statusCode: 500,
-  //       body: {
-  //         message: `Something went wrong`
-  //       }
-  //     }
-  //   )
-  //   // })
-  //   cy.get('.error').should('contain', 'Something went wrong')
-  // })

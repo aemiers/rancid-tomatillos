@@ -11,9 +11,9 @@ const MovieCard = ({ id, title, poster, rating, icon, }) => {
       <aside className='card-info'>
         <div className='rating-box'>
           <img src={icon} alt='tomatillo icon' />
-          <h4>{rating}%</h4>
+          <p>{rating}%</p>
         </div>
-        <h3 className='hover-title'>{title}</h3>
+        <p className='hover-title'>{title}</p>
       </aside>
     </Link>
   )
