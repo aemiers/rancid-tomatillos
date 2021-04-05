@@ -24,7 +24,7 @@ class Dropdown extends Component {
       const parsedRating = parseInt(movie.rating)
       if (clickedId === 0 && parsedRating <= 29) {
         return movie
-      } else if (parsedRating >= clickedId && parsedRating <= (clickedId + .99)) {
+      } else if (parsedRating >= clickedId && parsedRating <= (clickedId + 9)) {
         return movie
       }
     })
