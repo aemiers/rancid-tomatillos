@@ -1,6 +1,6 @@
 # Rancid Tomatillos
 <p align="center">
-<img src="./assets/logo-black.svg" alt="Rancid Tomatillos Logo" width="300">
+<img src="./src/assets/logo-black.png" alt="Rancid Tomatillos Logo" width="300">
 </p>  
 
 ## Table of Contents
@@ -19,8 +19,7 @@
   - [Mobile View](#mobile-view)
   - [Tablet View](#tablet-view)
   - [Accessibility](#accessibility)
-- [Contributors](#contributors)
-- [Contact](#contact)
+- [Contact the Contributers](#contact-the-contributers)
 
 
 ## About the Project
