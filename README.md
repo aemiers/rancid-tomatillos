@@ -53,6 +53,9 @@ https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html
 View the code ->
 https://github.com/aemiers/rancid-tomatillos
 
+Deployed Link ->
+https://rancid-tomatillos-miers-umland.herokuapp.com
+
 ## Technologies Used
 
 - ![React](https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB)
