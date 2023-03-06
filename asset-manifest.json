@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/rancid/static/css/main.b32476c4.chunk.css",
+    "main.js": "/rancid/static/js/main.59c5a86c.chunk.js",
+    "main.js.map": "/rancid/static/js/main.59c5a86c.chunk.js.map",
+    "runtime-main.js": "/rancid/static/js/runtime-main.b91c8d7f.js",
+    "runtime-main.js.map": "/rancid/static/js/runtime-main.b91c8d7f.js.map",
+    "static/js/2.64389437.chunk.js": "/rancid/static/js/2.64389437.chunk.js",
+    "static/js/2.64389437.chunk.js.map": "/rancid/static/js/2.64389437.chunk.js.map",
+    "index.html": "/rancid/index.html",
+    "static/css/main.b32476c4.chunk.css.map": "/rancid/static/css/main.b32476c4.chunk.css.map",
+    "static/js/2.64389437.chunk.js.LICENSE.txt": "/rancid/static/js/2.64389437.chunk.js.LICENSE.txt",
+    "static/media/cancel.e010628a.svg": "/rancid/static/media/cancel.e010628a.svg",
+    "static/media/dropdown.1561b10f.svg": "/rancid/static/media/dropdown.1561b10f.svg",
+    "static/media/filter.da656d85.svg": "/rancid/static/media/filter.da656d85.svg",
+    "static/media/logo.84ef81a9.svg": "/rancid/static/media/logo.84ef81a9.svg",
+    "static/media/search.937108d0.svg": "/rancid/static/media/search.937108d0.svg",
+    "static/media/tomatillo.98866497.svg": "/rancid/static/media/tomatillo.98866497.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b91c8d7f.js",
+    "static/js/2.64389437.chunk.js",
+    "static/css/main.b32476c4.chunk.css",
+    "static/js/main.59c5a86c.chunk.js"
+  ]
+}
